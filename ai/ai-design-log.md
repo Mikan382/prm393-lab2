@@ -51,7 +51,7 @@ Design System & Aesthetics:
   * [`assets/stitch/03_initial_stitch_cart.png`](../assets/stitch/03_initial_stitch_cart.png)
   * [`assets/stitch/04_initial_stitch_tracking.png`](../assets/stitch/04_initial_stitch_tracking.png)
 * **Dự án Google Stitch:** Project ID `18314376874619200698` ("FtaCode - Campus Quick Food Ordering", Mobile).
-* **Figma Design Link:** [FtaCode Figma Project (View Access)](https://www.figma.com/design/7PHZ75SvS5tH9vvY1TFy7E/Untitled) *(Bao gồm đầy đủ 6 Trang & 3 Flow Prototype tương tác)*
+* **Figma Design Link:** [FtaCode Figma Project (View Access)](https://www.figma.com/design/JeWtr0nQ6pD2cPzjUMqU6A/Untitled?node-id=1-6&t=kxQCPUOcwGKqvyJc-1) *(Bao gồm đầy đủ 6 Trang & 3 Flow Prototype tương tác)*
 
 ---
 

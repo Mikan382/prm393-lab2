@@ -3,7 +3,7 @@
 > **Tài liệu:** `design/design-decisions.md`  
 > **Dự án:** FtaCode Mobile App — Campus Quick Food Ordering  
 > **Môn học:** PRM323 — Lab 2  
-> **Figma Design Link:** [FtaCode Figma Project (View Access)](https://www.figma.com/design/7PHZ75SvS5tH9vvY1TFy7E/Untitled) *(Bao gồm đầy đủ 6 Trang & 3 Flow Prototype tương tác)*
+> **Figma Design Link:** [FtaCode Figma Project (View Access)](https://www.figma.com/design/JeWtr0nQ6pD2cPzjUMqU6A/Untitled?node-id=1-6&t=kxQCPUOcwGKqvyJc-1) *(Bao gồm đầy đủ 6 Trang & 3 Flow Prototype tương tác)*
 
 ---
 
