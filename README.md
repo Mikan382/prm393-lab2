@@ -3,7 +3,7 @@
 > **Dự án:** FtaCode Mobile App — Ứng dụng đặt đồ ăn nhanh & đồ uống trong khuôn viên trường đại học  
 > **Khóa học:** PRM323 — Lập trình ứng dụng đa nền tảng (Cross-Platform Application Development)  
 > **Sinh viên thực hiện:** PRM393-Lab2 Team / Student  
-> **Figma Design Link:** [FtaCode Figma Project (View Access)](https://www.figma.com/design/sample-ftacode-prm323) *(Mở quyền View cho tất cả những ai có link)*  
+> **Figma Design Link:** [FtaCode Figma Project (View Access)](https://www.figma.com/design/7PHZ75SvS5tH9vvY1TFy7E/Untitled) *(Mở quyền View cho tất cả những ai có link)*  
 > **Cấu trúc Repository:** Tuân thủ 100% chuẩn quy định của đề bài Lab 2 PRM323  
 
 ---
