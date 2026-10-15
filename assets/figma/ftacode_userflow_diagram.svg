@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900">
+  <defs>
+    <style>
+      .flow-title { font-family: 'Nunito', 'Segoe UI', sans-serif; font-weight: 800; fill: #622B14; }
+      .flow-sub { font-family: 'Nunito', 'Segoe UI', sans-serif; font-weight: 600; fill: #966A55; font-size: 13px; }
+      .node-text { font-family: 'Nunito', 'Segoe UI', sans-serif; font-weight: 700; font-size: 13px; fill: #622B14; text-anchor: middle; }
+      .node-sub { font-family: 'Nunito', 'Segoe UI', sans-serif; font-weight: 400; font-size: 11px; fill: #966A55; text-anchor: middle; }
+      .line-label { font-family: 'Nunito', 'Segoe UI', sans-serif; font-weight: 600; font-size: 11px; fill: #F69D39; }
+    </style>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#622B14" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#F69D39"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#16A34A"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background Board -->
+  <rect width="1400" height="900" fill="#FFF5E5" rx="24"/>
+
+  <!-- Page Header -->
+  <text x="50" y="55" class="flow-title" font-size="26">FtaCode User Flows — 01 User Flow Page</text>
+  <text x="50" y="85" class="flow-sub">3 Complete Mobile Flows: Quick Pickup (&lt;35s), Food Customization, and Payment Error Recovery Flow</text>
+
+  <!-- ================= FLOW 1: QUICK PICKUP ORDER ================= -->
+  <g id="Flow_01_QuickPickup" transform="translate(50, 120)">
+    <rect width="1300" height="210" rx="16" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="30" y="32" class="flow-title" font-size="16">Flow 1: Quick Pickup Order Flow (Luồng đặt nhanh &lt; 35s)</text>
+    <rect x="520" y="16" width="130" height="24" rx="12" fill="#DCFCE7"/>
+    <text x="585" y="32" font-family="'Nunito', sans-serif" font-weight="700" font-size="11" fill="#166534" text-anchor="middle">⚡ Golden Path</text>
+
+    <!-- Step 1: Start -->
+    <g transform="translate(30, 60)">
+      <rect width="160" height="85" rx="12" fill="#FFE8CC" stroke="#F69D39" stroke-width="2"/>
+      <text x="80" y="35" class="node-text">Khởi động App</text>
+      <text x="80" y="55" class="node-sub">SCR-01 Onboarding</text>
+      <text x="80" y="70" class="node-sub">[Flow Starting Point]</text>
+    </g>
+
+    <line x1="190" y1="102" x2="245" y2="102" stroke="#F69D39" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Step 2: Home Quick Add -->
+    <g transform="translate(250, 60)">
+      <rect width="170" height="85" rx="12" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5"/>
+      <text x="85" y="32" class="node-text">Khám phá món</text>
+      <text x="85" y="50" class="node-sub">SCR-02 Home</text>
+      <text x="85" y="68" class="node-sub">Bấm nút (+) thêm nhanh</text>
+    </g>
+
+    <line x1="420" y1="102" x2="475" y2="102" stroke="#F69D39" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Step 3: Cart -->
+    <g transform="translate(480, 60)">
+      <rect width="170" height="85" rx="12" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5"/>
+      <text x="85" y="32" class="node-text">Giỏ hàng &amp; Voucher</text>
+      <text x="85" y="50" class="node-sub">SCR-04 Cart</text>
+      <text x="85" y="68" class="node-sub">Áp FTASTUDENT (-10k)</text>
+    </g>
+
+    <line x1="650" y1="102" x2="705" y2="102" stroke="#F69D39" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Step 4: Checkout -->
+    <g transform="translate(710, 60)">
+      <rect width="180" height="85" rx="12" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5"/>
+      <text x="90" y="32" class="node-text">Thanh toán MoMo</text>
+      <text x="90" y="50" class="node-sub">Xác nhận thanh toán</text>
+      <text x="90" y="68" class="node-sub">Mở Overlay Dialog xác nhận</text>
+    </g>
+
+    <line x1="890" y1="102" x2="945" y2="102" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+    <!-- Step 5: Success & Pickup QR -->
+    <g transform="translate(950, 60)">
+      <rect width="180" height="85" rx="12" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+      <text x="90" y="32" class="node-text" fill="#166534">Nhận Mã #A-204</text>
+      <text x="90" y="50" class="node-sub" fill="#166534">SCR-05 Order Tracking</text>
+      <text x="90" y="68" class="node-sub" fill="#166534">Quét QR tại Kiosk Alpha</text>
+    </g>
+
+    <text x="1150" y="106" font-family="'Nunito', sans-serif" font-weight="800" font-size="20" fill="#16A34A">🎉 &lt;35s</text>
+  </g>
+
+  <!-- ================= FLOW 2: FOOD CUSTOMIZATION FLOW ================= -->
+  <g id="Flow_02_Customization" transform="translate(50, 360)">
+    <rect width="1300" height="220" rx="16" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="30" y="32" class="flow-title" font-size="16">Flow 2: Food Detail &amp; Customization Flow (Luồng tùy chỉnh món ăn chi tiết)</text>
+    <rect x="620" y="16" width="130" height="24" rx="12" fill="#FEF3C7"/>
+    <text x="685" y="32" font-family="'Nunito', sans-serif" font-weight="700" font-size="11" fill="#92400E" text-anchor="middle">🍲 Customization</text>
+
+    <!-- Step 1: Menu Screen -->
+    <g transform="translate(30, 60)">
+      <rect width="160" height="90" rx="12" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5"/>
+      <text x="80" y="32" class="node-text">Khám phá Thực đơn</text>
+      <text x="80" y="50" class="node-sub">SCR-02 Thực đơn Alpha</text>
+      <text x="80" y="68" class="node-sub">Chọn Combo Tacos Bò</text>
+    </g>
+
+    <line x1="190" y1="105" x2="245" y2="105" stroke="#F69D39" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Step 2: Detail Screen -->
+    <g transform="translate(250, 60)">
+      <rect width="190" height="90" rx="12" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5"/>
+      <text x="95" y="32" class="node-text">Chi tiết món ăn</text>
+      <text x="95" y="50" class="node-sub">SCR-03 Food Detail</text>
+      <text x="95" y="68" class="node-sub">Chọn cay vừa + phô mai (+5k)</text>
+    </g>
+
+    <line x1="440" y1="105" x2="495" y2="105" stroke="#F69D39" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Step 3: Bottom Sheet Sticky CTA -->
+    <g transform="translate(500, 60)">
+      <rect width="180" height="90" rx="12" fill="#FFE8CC" stroke="#F69D39" stroke-width="1.5"/>
+      <text x="90" y="32" class="node-text">Sticky CTA Bar</text>
+      <text x="90" y="50" class="node-sub">Tăng số lượng x2</text>
+      <text x="90" y="68" class="node-sub">Bấm "Thêm vào giỏ"</text>
+    </g>
+
+    <line x1="680" y1="105" x2="735" y2="105" stroke="#F69D39" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Step 4: Loading to Cart -->
+    <g transform="translate(740, 60)">
+      <rect width="180" height="90" rx="12" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5"/>
+      <text x="90" y="32" class="node-text">Hiệu ứng cập nhật</text>
+      <text x="90" y="50" class="node-sub">Badge giỏ hàng nhảy số 2</text>
+      <text x="90" y="68" class="node-sub">Toast thông báo thành công</text>
+    </g>
+
+    <line x1="920" y1="105" x2="975" y2="105" stroke="#F69D39" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Step 5: View Cart -->
+    <g transform="translate(980, 60)">
+      <rect width="180" height="90" rx="12" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+      <text x="90" y="32" class="node-text" fill="#166534">Xem giỏ hàng đã tùy chỉnh</text>
+      <text x="90" y="50" class="node-sub" fill="#166534">SCR-04 Cart</text>
+      <text x="90" y="68" class="node-sub" fill="#166534">Sẵn sàng thanh toán</text>
+    </g>
+  </g>
+
+  <!-- ================= FLOW 3: PAYMENT ERROR & RECOVERY FLOW ================= -->
+  <g id="Flow_03_ErrorRecovery" transform="translate(50, 610)">
+    <rect width="1300" height="240" rx="16" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="30" y="32" class="flow-title" font-size="16" fill="#DC2626">Flow 3: Payment Error &amp; Recovery Flow (Luồng lỗi thanh toán &amp; phục hồi giỏ hàng)</text>
+    <rect x="710" y="16" width="130" height="24" rx="12" fill="#FEE2E2"/>
+    <text x="775" y="32" font-family="'Nunito', sans-serif" font-weight="700" font-size="11" fill="#DC2626" text-anchor="middle">⚠️ Error &amp; Recovery</text>
+
+    <!-- Step 1: Cart Checkout Trigger -->
+    <g transform="translate(30, 65)">
+      <rect width="160" height="90" rx="12" fill="#FFFFFF" stroke="#EEDBCA" stroke-width="1.5"/>
+      <text x="80" y="32" class="node-text">Bấm Thanh toán MoMo</text>
+      <text x="80" y="50" class="node-sub">SCR-04 Giỏ hàng</text>
+      <text x="80" y="68" class="node-sub">Tổng tiền 54.000đ</text>
+    </g>
+
+    <line x1="190" y1="110" x2="245" y2="110" stroke="#DC2626" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+    <!-- Step 2: Gateway Failure -->
+    <g transform="translate(250, 65)">
+      <rect width="190" height="90" rx="12" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+      <text x="95" y="30" class="node-text" fill="#DC2626">Giao dịch bị từ chối</text>
+      <text x="95" y="50" class="node-sub" fill="#DC2626">Ví MoMo số dư không đủ</text>
+      <text x="95" y="68" class="node-sub" fill="#DC2626">Mã lỗi: #PAY_402</text>
+    </g>
+
+    <line x1="440" y1="110" x2="495" y2="110" stroke="#DC2626" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+    <!-- Step 3: Error Recovery Screen -->
+    <g transform="translate(500, 65)">
+      <rect width="220" height="90" rx="12" fill="#FFF5E5" stroke="#F69D39" stroke-width="2"/>
+      <text x="110" y="28" class="node-text">Màn hình báo lỗi &amp; Phục hồi</text>
+      <text x="110" y="46" class="node-sub">SCR-07 Error Recovery</text>
+      <text x="110" y="64" class="node-sub">Đồng hồ giữ món 09:45</text>
+      <text x="110" y="80" class="node-sub" fill="#16A34A">Giỏ hàng không bị xóa!</text>
+    </g>
+
+    <!-- Branch A: Switch Payment to VNPAY-QR -->
+    <path d="M 720 95 L 775 75" fill="none" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <g transform="translate(780, 50)">
+      <rect width="210" height="60" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="105" y="26" class="node-text" fill="#166534">Nhánh A: Đổi sang VNPAY-QR</text>
+      <text x="105" y="44" class="node-sub" fill="#166534">Quét mã app ngân hàng tức thì</text>
+    </g>
+
+    <!-- Branch B: Switch to Kiosk Cash -->
+    <path d="M 720 125 L 775 145" fill="none" stroke="#F69D39" stroke-width="2" marker-end="url(#arrow)"/>
+    <g transform="translate(780, 125)">
+      <rect width="210" height="60" rx="10" fill="#FFE8CC" stroke="#F69D39" stroke-width="1.5"/>
+      <text x="105" y="26" class="node-text" fill="#622B14">Nhánh B: Trả tiền mặt tại quầy</text>
+      <text x="105" y="44" class="node-sub" fill="#622B14">Lấy đồ ăn trước - thanh toán sau</text>
+    </g>
+
+    <!-- Final Convergence to Tracking -->
+    <path d="M 990 80 L 1045 105" fill="none" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <path d="M 990 155 L 1045 115" fill="none" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+    <g transform="translate(1050, 65)">
+      <rect width="200" height="90" rx="12" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+      <text x="100" y="32" class="node-text" fill="#166534">Thanh toán hoàn tất</text>
+      <text x="100" y="50" class="node-sub" fill="#166534">SCR-05 Order Tracking</text>
+      <text x="100" y="68" class="node-sub" fill="#166534">Bếp nhận đơn kịp giờ học</text>
+    </g>
+  </g>
+</svg>
