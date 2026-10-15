@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=360, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Thanh toán chưa thành công - FtaCode Campus</title>
+<!-- Google Fonts: Nunito Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-bright": "#fff8f6",
+            "surface": "#fff8f6",
+            "primary-fixed-dim": "#ffb871",
+            "surface-dim": "#ffd0bf",
+            "on-tertiary-fixed-variant": "#534430",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#251a09",
+            "secondary-fixed": "#fee08f",
+            "tertiary-fixed": "#f6dfc3",
+            "on-tertiary-container": "#50422d",
+            "outline-variant": "#d9c2b0",
+            "surface-default": "#FFFFFF",
+            "tertiary": "#6c5c46",
+            "text-muted": "#966A55",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#d9c3a9",
+            "on-primary-fixed": "#2d1600",
+            "border-subtle": "#EEDBCA",
+            "inverse-surface": "#54210a",
+            "secondary-fixed-dim": "#e1c476",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#ffdbce",
+            "inverse-on-surface": "#ffede7",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#584400",
+            "on-primary-fixed-variant": "#6a3c00",
+            "tertiary-container": "#c3ae94",
+            "primary-pressed": "#E0851F",
+            "outline": "#867464",
+            "primary-fixed": "#ffdcbe",
+            "inverse-primary": "#ffb871",
+            "status-success": "#16A34A",
+            "primary-container": "#f69d39",
+            "on-surface": "#370e00",
+            "primary": "#8b5000",
+            "on-secondary-fixed": "#241a00",
+            "text-disabled": "#C8B3A6",
+            "on-surface-variant": "#534436",
+            "on-secondary": "#ffffff",
+            "background-canvas": "#FFF5E5",
+            "surface-container": "#ffe9e2",
+            "on-primary": "#ffffff",
+            "background": "#fff8f6",
+            "secondary-container": "#fbdd8c",
+            "on-background": "#370e00",
+            "on-secondary-container": "#76601c",
+            "surface-tint": "#8b5000",
+            "surface-container-high": "#ffe2d8",
+            "on-primary-container": "#663900",
+            "surface-subtle": "#FFF9F0",
+            "on-error": "#ffffff",
+            "surface-container-low": "#fff1ec",
+            "surface-variant": "#ffdbce",
+            "status-error": "#DC2626",
+            "on-error-container": "#93000a",
+            "secondary": "#725c18"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "0.75rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "title-sm": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"],
+            "headline-md": ["Nunito Sans"],
+            "body-lg": ["Nunito Sans"],
+            "title-md": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "headline-lg": ["Nunito Sans"],
+            "label-lg": ["Nunito Sans"],
+            "display-lg": ["Nunito Sans"]
+          },
+          "fontSize": {
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "display-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: #FFF5E5;
+      color: #622B14;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+    .elevation-1 {
+      box-shadow: 0 2px 8px rgba(98, 43, 20, 0.08);
+    }
+    .elevation-2 {
+      box-shadow: 0 4px 16px rgba(98, 43, 20, 0.12);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex justify-center bg-background-canvas select-none">
+<!-- Mobile Container (Max Width 420px for ideal view, strictly 360px viewport baseline) -->
+<div class="w-full max-w-[420px] min-h-screen bg-background-canvas relative flex flex-col pb-36">
+<!-- 1. Top Bar (Task-focused recovery, BottomNavBar is suppressed per Semantic Shell rules) -->
+<header class="sticky top-0 z-40 w-full h-14 bg-surface-subtle/95 backdrop-blur-md px-margin flex items-center justify-between border-b border-border-subtle elevation-1">
+<button aria-label="Quay lại" class="w-12 h-12 flex items-center justify-center -ml-2 rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-2xl text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight text-center truncate px-2">
+        Thanh toán chưa thành công
+      </h1>
+<div class="relative flex items-center justify-center">
+<button aria-label="Trợ giúp" class="w-12 h-12 flex items-center justify-center -mr-2 rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-100" id="supportBtn" type="button">
+<span class="material-symbols-outlined text-2xl text-on-surface">support_agent</span>
+</button>
+<!-- Mini Help Tooltip Popover -->
+<div class="hidden absolute right-0 top-12 w-48 bg-surface-default border border-border-subtle rounded-xl p-space-sm elevation-2 z-50 text-label-sm font-label-sm text-on-surface-variant" id="supportTooltip">
+<p class="font-bold text-on-surface mb-0.5">Hỗ trợ 24/7 sinh viên</p>
+<p>Kiosk Tòa Alpha: Nhánh nội bộ 102</p>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="px-margin pt-space-md flex flex-col gap-space-md">
+<!-- 2. Error Alert & Student Reassurance Section -->
+<section class="bg-surface-default rounded-2xl p-space-lg border border-red-100 elevation-1 flex flex-col gap-space-md">
+<!-- Error Status Header -->
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-status-error text-2xl fill-icon">error</span>
+</div>
+<div class="flex-1">
+<span class="inline-block px-2 py-0.5 rounded-full bg-red-50 text-status-error font-label-sm text-label-sm mb-1 font-bold">
+              Lỗi thanh toán
+            </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface leading-tight">
+              Thanh toán gián đoạn
+            </h2>
+</div>
+</div>
+<!-- Error explanation box -->
+<div class="bg-red-50/70 border border-red-200/80 rounded-xl p-space-md flex gap-space-sm">
+<span class="material-symbols-outlined text-status-error text-base flex-shrink-0 mt-0.5">info</span>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+            Giao dịch qua Ví MoMo bị từ chối do số dư ví không đủ hoặc kết nối mạng chập chờn (<span class="font-bold text-status-error">Mã lỗi: #PAY_402</span>).
+          </p>
+</div>
+<!-- Student Reassurance Notice with timer badge -->
+<div class="bg-surface-subtle border border-primary-container/40 rounded-xl p-space-md flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container/60 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary-pressed text-xl fill-icon">timer</span>
+</div>
+<div class="flex-1 font-body-md text-body-md text-on-surface leading-snug">
+            Đừng lo! Đơn hàng của bạn vẫn được giữ trong 
+            <span class="inline-flex items-center px-2 py-0.5 rounded-md bg-primary-container text-white font-label-lg text-label-lg font-bold tracking-wider mx-1" id="countdown">
+              09:45
+            </span> 
+            để kịp giờ ăn giữa tiết học.
+          </div>
+</div>
+</section>
+<!-- 3. Order Details Recap Card -->
+<section class="bg-surface-default rounded-2xl border border-border-subtle p-space-lg elevation-1 flex flex-col gap-space-md">
+<!-- Header -->
+<div class="flex items-center justify-between border-b border-border-subtle pb-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-xl">receipt_long</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">
+              Chi tiết đơn hàng giữ chỗ
+            </h3>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">#ORD-9842</span>
+</div>
+<!-- Items Summary -->
+<div class="space-y-space-sm text-body-md font-body-md text-on-surface">
+<div class="flex justify-between items-center py-0.5">
+<span class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Combo Tacos Bò Phô Mai
+            </span>
+<span class="font-label-sm text-label-sm text-text-muted">x1</span>
+</div>
+<div class="flex justify-between items-center py-0.5">
+<span class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Trà Đào Chanh Sả
+            </span>
+<span class="font-label-sm text-label-sm text-text-muted">x1</span>
+</div>
+</div>
+<!-- Location Badge -->
+<div class="bg-surface-subtle border border-border-subtle rounded-xl p-space-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-lg flex-shrink-0 mt-0.5">storefront</span>
+<div class="text-body-md font-body-md text-on-surface leading-tight">
+<span class="font-bold text-on-surface">Điểm nhận:</span> Kiosk Tòa Alpha (Tầng 1)
+            <div class="text-label-sm font-label-sm text-status-success font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">bolt</span> Kịp giờ giảng đường (Ưu tiên làm nhanh)
+            </div>
+</div>
+</div>
+<!-- Total Highlight -->
+<div class="flex justify-between items-center pt-space-xs border-t border-border-subtle">
+<span class="font-title-md text-title-md text-on-surface">Tổng thanh toán:</span>
+<span class="font-display-lg text-display-lg text-primary-container font-bold tracking-tight">54.000đ</span>
+</div>
+</section>
+<!-- 4. Alternative Payment Options (One-tap switch) -->
+<section class="flex flex-col gap-space-sm">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold px-1 flex items-center justify-between">
+<span>Chọn phương thức thanh toán thay thế</span>
+<span class="font-label-sm text-label-sm text-text-muted font-normal">Chạm để chọn</span>
+</h3>
+<!-- Radio Options Container -->
+<div aria-label="Phương thức thanh toán" class="space-y-space-sm" role="radiogroup">
+<!-- Option 1: VNPAY-QR (Selected) -->
+<label class="payment-card flex items-center justify-between p-space-md rounded-2xl bg-surface-subtle border-2 border-primary-container elevation-1 cursor-pointer transition-all duration-150" id="opt1">
+<div class="flex items-center gap-space-md flex-1">
+<div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-blue-600 text-2xl">qr_code_scanner</span>
+</div>
+<div class="flex-1 pr-2">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-bold">VNPAY-QR</span>
+<span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full font-bold">Khuyên dùng</span>
+</div>
+<p class="font-label-sm text-label-sm text-text-muted mt-0.5 leading-snug">
+                  Quét nhanh ứng dụng ngân hàng, xác nhận tức thì
+                </p>
+</div>
+</div>
+<!-- Custom Radio -->
+<input checked="" class="hidden radio-input" name="payment_method" type="radio" value="vnpay"/>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-primary-container flex items-center justify-center flex-shrink-0 bg-surface-default">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+</div>
+</label>
+<!-- Option 2: Student Card / FtaPay -->
+<label class="payment-card flex items-center justify-between p-space-md rounded-2xl bg-surface-default border border-border-subtle elevation-1 cursor-pointer transition-all duration-150" id="opt2">
+<div class="flex items-center gap-space-md flex-1">
+<div class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-amber-600 text-2xl fill-icon">account_balance_wallet</span>
+</div>
+<div class="flex-1 pr-2">
+<span class="font-title-md text-title-md text-on-surface font-bold">Thẻ sinh viên / Ví FtaPay</span>
+<p class="font-label-sm text-label-sm text-text-muted mt-0.5 leading-snug">
+                  Số dư ví: <span class="text-status-success font-bold">120.000đ</span> (Đủ thanh toán)
+                </p>
+</div>
+</div>
+<!-- Custom Radio -->
+<input class="hidden radio-input" name="payment_method" type="radio" value="ftapay"/>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center flex-shrink-0 bg-surface-default">
+<div class="w-3 h-3 rounded-full bg-primary-container hidden"></div>
+</div>
+</label>
+<!-- Option 3: Cash at Counter -->
+<label class="payment-card flex items-center justify-between p-space-md rounded-2xl bg-surface-default border border-border-subtle elevation-1 cursor-pointer transition-all duration-150" id="opt3">
+<div class="flex items-center gap-space-md flex-1">
+<div class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-emerald-700 text-2xl">payments</span>
+</div>
+<div class="flex-1 pr-2">
+<span class="font-title-md text-title-md text-on-surface font-bold">Thanh toán tiền mặt tại quầy</span>
+<p class="font-label-sm text-label-sm text-text-muted mt-0.5 leading-snug">
+                  Kiosk Tòa Alpha (Tầng 1)
+                </p>
+</div>
+</div>
+<!-- Custom Radio -->
+<input class="hidden radio-input" name="payment_method" type="radio" value="cash"/>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center flex-shrink-0 bg-surface-default">
+<div class="w-3 h-3 rounded-full bg-primary-container hidden"></div>
+</div>
+</label>
+</div>
+</section>
+<!-- Campus Guarantee Note -->
+<div class="p-space-sm rounded-xl bg-amber-50/50 border border-border-subtle flex items-center justify-center gap-2 text-label-sm font-label-sm text-text-muted">
+<span class="material-symbols-outlined text-sm text-primary">security</span>
+<span>Cam kết hoàn trả 100% nếu giao dịch MoMo bị trừ tiền kép.</span>
+</div>
+</main>
+<!-- 5. Bottom Action Buttons (Docked Bottom Bar, shadow-lg, bg-white/95 backdrop-blur-md) -->
+<footer class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[420px] z-50 bg-surface-default/95 backdrop-blur-md px-margin py-space-md border-t border-border-subtle elevation-2">
+<!-- Primary CTA Button (Height: 48px, >=48dp touch target) -->
+<button class="w-full h-12 bg-primary-container hover:bg-primary-pressed active:scale-[0.98] transition-all duration-150 rounded-xl text-white font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-md" id="retryBtn" type="button">
+<span class="material-symbols-outlined text-xl">autorenew</span>
+<span id="ctaText">Thử lại bằng phương thức khác</span>
+</button>
+<!-- Secondary Button (Height: 40px with generous hit target) -->
+<button class="w-full h-10 mt-1.5 bg-transparent text-text-muted hover:text-on-surface font-title-sm text-title-sm font-bold flex items-center justify-center active:scale-95 transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-lg mr-1">shopping_bag</span>
+<span>Quay lại giỏ hàng</span>
+</button>
+</footer>
+</div>
+<!-- Inline Micro-interactions for Radio Selection, Countdown & Support Tooltip -->
+<script>
+    // 1. Radio Selection Toggle Handler
+    const cards = document.querySelectorAll('.payment-card');
+    const ctaText = document.getElementById('ctaText');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Reset all
+        cards.forEach(c => {
+          c.classList.remove('bg-surface-subtle', 'border-2', 'border-primary-container');
+          c.classList.add('bg-surface-default', 'border', 'border-border-subtle');
+          const indicator = c.querySelector('.radio-indicator');
+          indicator.classList.remove('border-primary-container');
+          indicator.classList.add('border-outline-variant');
+          indicator.querySelector('div').classList.add('hidden');
+          c.querySelector('input').checked = false;
+        });
+
+        // Set active
+        card.classList.remove('bg-surface-default', 'border', 'border-border-subtle');
+        card.classList.add('bg-surface-subtle', 'border-2', 'border-primary-container');
+        const activeIndicator = card.querySelector('.radio-indicator');
+        activeIndicator.classList.remove('border-outline-variant');
+        activeIndicator.classList.add('border-primary-container');
+        activeIndicator.querySelector('div').classList.remove('hidden');
+        
+        const radio = card.querySelector('input');
+        radio.checked = true;
+
+        if (radio.value === 'vnpay') {
+          ctaText.innerText = 'Thanh toán ngay qua VNPAY';
+        } else if (radio.value === 'ftapay') {
+          ctaText.innerText = 'Xác nhận trừ Ví FtaPay (54.000đ)';
+        } else {
+          ctaText.innerText = 'Xác nhận đặt hàng & Trả tại quầy';
+        }
+      });
+    });
+
+    // 2. Countdown Timer simulation (09:45 descending)
+    let totalSeconds = 9 * 60 + 45;
+    const countdownEl = document.getElementById('countdown');
+
+    setInterval(() => {
+      if (totalSeconds > 0) {
+        totalSeconds--;
+        const mins = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+        const secs = (totalSeconds % 60).toString().padStart(2, '0');
+        countdownEl.innerText = `${mins}:${secs}`;
+      }
+    }, 1000);
+
+    // 3. Support Tooltip Toggle
+    const supportBtn = document.getElementById('supportBtn');
+    const supportTooltip = document.getElementById('supportTooltip');
+
+    supportBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      supportTooltip.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', () => {
+      if (!supportTooltip.classList.contains('hidden')) {
+        supportTooltip.classList.add('hidden');
+      }
+    });
+
+    // 4. Retry Button feedback animation
+    const retryBtn = document.getElementById('retryBtn');
+    retryBtn.addEventListener('click', () => {
+      const origText = ctaText.innerText;
+      ctaText.innerText = 'Đang chuyển kết nối...';
+      retryBtn.classList.add('opacity-80');
+      setTimeout(() => {
+        ctaText.innerText = origText;
+        retryBtn.classList.remove('opacity-80');
+      }, 1200);
+    });
+  </script>
+</body></html>

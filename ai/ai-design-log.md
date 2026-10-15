@@ -41,13 +41,22 @@ Design System & Aesthetics:
 ```
 
 ### 2.2 Kết quả ban đầu từ Stitch (Initial Stitch Output)
+* **Google Stitch Project ID:** `18314376874619200698` ("FtaCode - Campus Quick Food Ordering")
+* **AI Model Engine:** Google Stitch with `GEMINI_3_8_FLASH`
 * **Ngày tạo:** 15/10/2026.
-* **Đánh giá ban đầu:** AI sinh ra được bố cục 4 màn hình chính với màu sắc ấm áp, thẻ sản phẩm bắt mắt.
+* **Đánh giá ban đầu:** AI sinh ra được bố cục màn hình chuẩn Mobile 360x800dp với màu sắc ấm áp, thẻ sản phẩm bắt mắt, tuân thủ Material Design 3 và Design Tokens từ `DESIGN.md`.
 * **Minh chứng ảnh chụp:** Được lưu trữ tại thư mục:  
   * [`assets/stitch/01_initial_stitch_home.png`](../assets/stitch/01_initial_stitch_home.png)
   * [`assets/stitch/02_initial_stitch_detail.png`](../assets/stitch/02_initial_stitch_detail.png)
   * [`assets/stitch/03_initial_stitch_cart.png`](../assets/stitch/03_initial_stitch_cart.png)
   * [`assets/stitch/04_initial_stitch_tracking.png`](../assets/stitch/04_initial_stitch_tracking.png)
+* **Mã nguồn HTML/CSS gốc do Stitch biên dịch:**
+  * [`assets/stitch/html/01_home_screen.html`](../assets/stitch/html/01_home_screen.html)
+  * [`assets/stitch/html/02_food_detail.html`](../assets/stitch/html/02_food_detail.html)
+  * [`assets/stitch/html/03_cart_checkout.html`](../assets/stitch/html/03_cart_checkout.html)
+  * [`assets/stitch/html/04_order_tracking.html`](../assets/stitch/html/04_order_tracking.html)
+  * [`assets/stitch/html/05_payment_error.html`](../assets/stitch/html/05_payment_error.html)
+  * [`assets/stitch/html/06_empty_cart.html`](../assets/stitch/html/06_empty_cart.html)
 
 ---
 

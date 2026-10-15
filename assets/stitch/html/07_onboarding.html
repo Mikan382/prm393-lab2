@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FtaCode Food - Onboarding</title>
+<!-- Google Fonts: Nunito Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#ffb871",
+            "on-primary-container": "#663900",
+            "secondary": "#725c18",
+            "secondary-container": "#fbdd8c",
+            "primary-fixed": "#ffdcbe",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#ffede7",
+            "primary": "#8b5000",
+            "surface-container-highest": "#ffdbce",
+            "surface-container-low": "#fff1ec",
+            "surface-subtle": "#FFF9F0",
+            "on-primary-fixed-variant": "#6a3c00",
+            "text-muted": "#966A55",
+            "secondary-fixed-dim": "#e1c476",
+            "tertiary-fixed-dim": "#d9c3a9",
+            "on-secondary-container": "#76601c",
+            "surface": "#fff8f6",
+            "inverse-primary": "#ffb871",
+            "error-container": "#ffdad6",
+            "on-surface": "#370e00",
+            "tertiary-fixed": "#f6dfc3",
+            "surface-container": "#ffe9e2",
+            "surface-dim": "#ffd0bf",
+            "primary-pressed": "#E0851F",
+            "primary-container": "#f69d39",
+            "outline": "#867464",
+            "border-subtle": "#EEDBCA",
+            "background": "#fff8f6",
+            "status-error": "#DC2626",
+            "surface-tint": "#8b5000",
+            "on-primary-fixed": "#2d1600",
+            "surface-default": "#FFFFFF",
+            "inverse-surface": "#54210a",
+            "on-secondary": "#ffffff",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#fee08f",
+            "on-background": "#370e00",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#584400",
+            "on-tertiary-fixed": "#251a09",
+            "surface-container-high": "#ffe2d8",
+            "on-surface-variant": "#534436",
+            "on-primary": "#ffffff",
+            "outline-variant": "#d9c2b0",
+            "status-success": "#16A34A",
+            "on-tertiary-fixed-variant": "#534430",
+            "on-secondary-fixed": "#241a00",
+            "surface-variant": "#ffdbce",
+            "text-disabled": "#C8B3A6",
+            "tertiary": "#6c5c46",
+            "surface-bright": "#fff8f6",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#50422d",
+            "tertiary-container": "#c3ae94",
+            "background-canvas": "#FFF5E5"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-md": "0.75rem",
+            "space-lg": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "space-xl": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Nunito Sans"],
+            "label-lg": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "title-md": ["Nunito Sans"],
+            "title-sm": ["Nunito Sans"],
+            "headline-lg": ["Nunito Sans"],
+            "display-lg": ["Nunito Sans"],
+            "body-lg": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .shadow-warm-sm {
+      box-shadow: 0 2px 8px rgba(98, 43, 20, 0.08);
+    }
+    .shadow-warm-md {
+      box-shadow: 0 4px 16px rgba(98, 43, 20, 0.12);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-canvas min-h-screen text-on-surface flex justify-center items-start antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- Mobile Viewport Container (360px - 420px standard campus mobile shell) -->
+<main class="w-full max-w-md min-h-screen bg-background-canvas flex flex-col justify-between relative overflow-x-hidden pb-space-lg">
+<!-- Top Bar: Campus Location Badge & Skip Action -->
+<header class="pt-space-lg px-margin flex items-center justify-between z-10">
+<!-- Campus Location Pill -->
+<div class="inline-flex items-center gap-space-xs bg-surface-default border border-border-subtle rounded-full px-3 py-1.5 shadow-warm-sm">
+<span class="material-symbols-outlined text-primary-container text-base leading-none" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-tight">FPT University • Tòa Alpha</span>
+</div>
+<!-- Skip Button -->
+<a class="font-label-lg text-label-lg text-text-muted hover:text-primary active:scale-95 transition-all duration-150 px-2 py-1" href="#skip">
+        Bỏ qua
+      </a>
+</header>
+<!-- Scrollable & Balanced Core Content -->
+<div class="px-margin flex-1 flex flex-col pt-space-md">
+<!-- Hero Presentation Card with Image -->
+<div class="relative w-full rounded-2xl overflow-hidden bg-surface-default border border-border-subtle shadow-warm-sm group mb-space-lg">
+<!-- Hot Fresh Badge Over Hero -->
+<div class="absolute top-3 left-3 z-10 inline-flex items-center gap-1 bg-surface-default/95 backdrop-blur-sm border border-border-subtle rounded-full px-2.5 py-1 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">15 Phút Giải Lao</span>
+</div>
+<div class="absolute top-3 right-3 z-10 inline-flex items-center gap-1 bg-primary-container text-white rounded-full px-2.5 py-1 shadow-sm font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-sm leading-none" data-icon="bolt">bolt</span>
+<span>Nhanh &amp; Nóng</span>
+</div>
+<!-- Food Hero Image Asset -->
+<div class="w-full aspect-[16/10] overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" data-alt="Appetizing warm crispy Mexican tacos served on a rustic wooden board with lime wedges, fresh cilantro, salsa sauce, and sour cream inside a cozy warm-lit campus restaurant. High key food photography with rich golden brown cheese crust and juicy fillings, capturing an inviting culinary vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzwPsV_LT-nh3Tron-yLXfXIZEUo_1jgiKTrIEvtVYl0KkBrfgHY1LBEfQsyWtm5JUG7O6UGVKq0j6dFY1nUbYfLUD4V8djZkTdozfIkkswJIrtsnSVwfZwMVsFWQUdn7Y_X2P3tDtvxhZ2yQERKDG6cjLPUOvMzj_OtfqumphbrYkSjJ1_mkOyPMQMx5vAZaxMDvaNSGQZFZ2H1GgjC1Y7AQR3XpPjtsxSBn24ed232smf2ILCURJr-cjfPXRiy8obrrhxTOBBfs6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+</div>
+<!-- Mini Floating Tally Bar inside Hero -->
+<div class="p-3 bg-surface-default flex items-center justify-between border-t border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded-lg bg-surface-container text-primary-container">
+<span class="material-symbols-outlined text-lg leading-none" data-icon="storefront">storefront</span>
+</span>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface leading-tight font-bold">Uni-Bite Kiosk Hub</p>
+<p class="font-label-sm text-label-sm text-text-muted">Tầng 1 • Cạnh Sảnh Thư Viện</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-container/50 text-secondary px-2 py-0.5 rounded-full font-bold">Đang mở</span>
+</div>
+</div>
+<!-- App Brand & Slogan Headline Section -->
+<section class="text-left mb-space-lg">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-container mb-space-sm font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-sm leading-none" data-icon="restaurant_menu">restaurant_menu</span>
+          FtaCode Food Campus
+        </div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight leading-snug font-bold mb-space-xs">
+          Nạp năng lượng tức thì trong 15 phút giải lao!
+        </h1>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+          Thưởng thức đồ ăn nóng hổi, giòn rụm ngay tại Kiosk trường mà không lo trễ tiết học tiếp theo.
+        </p>
+</section>
+<!-- 3 Value Proposition Bullet Cards -->
+<section aria-label="Ưu điểm ứng dụng" class="flex flex-col gap-space-sm mb-space-xl">
+<!-- Bullet Card 1 -->
+<div class="bg-surface-default border border-border-subtle rounded-xl p-3 flex items-center gap-3 shadow-warm-sm transition-transform active:scale-[0.99]">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center shrink-0 text-primary-container">
+<span class="material-symbols-outlined text-xl" data-icon="bolt">bolt</span>
+</div>
+<div class="flex-1">
+<p class="font-title-sm text-title-sm text-on-surface font-bold leading-tight">Chuẩn bị siêu tốc 3-5 phút</p>
+<p class="font-label-sm text-label-sm text-text-muted leading-normal">Món ăn chuẩn nhiệt độ, lấy liền không đợi</p>
+</div>
+</div>
+<!-- Bullet Card 2 -->
+<div class="bg-surface-default border border-border-subtle rounded-xl p-3 flex items-center gap-3 shadow-warm-sm transition-transform active:scale-[0.99]">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center shrink-0 text-primary-container">
+<span class="material-symbols-outlined text-xl" data-icon="schedule">schedule</span>
+</div>
+<div class="flex-1">
+<p class="font-title-sm text-title-sm text-on-surface font-bold leading-tight">Đặt trước từ lớp học, nhận tại quầy</p>
+<p class="font-label-sm text-label-sm text-text-muted leading-normal">Không chen lấn, chuông báo sẵn sàng theo giờ</p>
+</div>
+</div>
+<!-- Bullet Card 3 -->
+<div class="bg-surface-default border border-border-subtle rounded-xl p-3 flex items-center gap-3 shadow-warm-sm transition-transform active:scale-[0.99]">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center shrink-0 text-primary-container">
+<span class="material-symbols-outlined text-xl" data-icon="contactless">contactless</span>
+</div>
+<div class="flex-1">
+<p class="font-title-sm text-title-sm text-on-surface font-bold leading-tight">Thanh toán 1 chạm &amp; tích điểm Fta</p>
+<p class="font-label-sm text-label-sm text-text-muted leading-normal">FtaPay, MoMo, tích điểm đổi nước miễn phí</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Sticky Action Area (Ergonomic Thumb Zone) -->
+<footer class="px-margin pt-space-xs pb-space-sm bg-gradient-to-t from-background-canvas via-background-canvas to-transparent sticky bottom-0 z-20">
+<!-- Primary Action CTA Button (min-h: 48px, rounded 12-16px, solid primary-container) -->
+<button class="w-full h-12 bg-primary-container hover:bg-primary-pressed active:scale-[0.98] transition-all duration-150 rounded-xl text-on-primary font-label-lg text-label-lg shadow-warm-md flex items-center justify-center gap-2 mb-space-sm" type="button">
+<span>Bắt đầu đặt món ngay</span>
+<span class="material-symbols-outlined text-lg leading-none" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Student Login Link -->
+<div class="flex flex-col items-center justify-center gap-1.5">
+<button class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-text-muted hover:text-primary active:scale-95 transition-all text-center group" type="button">
+<span class="material-symbols-outlined text-base text-primary-container group-hover:scale-110 transition-transform" data-icon="school">school</span>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold underline underline-offset-4 decoration-border-subtle hover:decoration-primary-container">
+            Đăng nhập bằng Email sinh viên @fpt.edu.vn
+          </span>
+</button>
+<!-- Micro-copy -->
+<p class="font-label-sm text-label-sm text-text-muted/80 text-center flex items-center gap-1">
+<span class="material-symbols-outlined text-xs leading-none" data-icon="verified_user">verified_user</span>
+          Dành riêng cho sinh viên &amp; giảng viên Campus
+        </p>
+</div>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tùy chỉnh món - Combo Tacos Bò Phô Mai | FtaCode Mobile</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "text-disabled": "#C8B3A6",
+            "tertiary-fixed-dim": "#d9c3a9",
+            "status-error": "#DC2626",
+            "surface-container-highest": "#ffdbce",
+            "secondary": "#725c18",
+            "on-tertiary-container": "#50422d",
+            "on-primary-fixed": "#2d1600",
+            "on-secondary-fixed": "#241a00",
+            "on-primary-fixed-variant": "#6a3c00",
+            "on-tertiary-fixed-variant": "#534430",
+            "tertiary": "#6c5c46",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fbdd8c",
+            "error": "#ba1a1a",
+            "surface-variant": "#ffdbce",
+            "text-muted": "#966A55",
+            "surface-container-high": "#ffe2d8",
+            "inverse-surface": "#54210a",
+            "on-secondary-fixed-variant": "#584400",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#ffb871",
+            "primary-fixed-dim": "#ffb871",
+            "background-canvas": "#FFF5E5",
+            "on-error": "#ffffff",
+            "status-success": "#16A34A",
+            "on-background": "#370e00",
+            "tertiary-container": "#c3ae94",
+            "secondary-fixed-dim": "#e1c476",
+            "inverse-on-surface": "#ffede7",
+            "surface-container-low": "#fff1ec",
+            "primary": "#8b5000",
+            "primary-pressed": "#E0851F",
+            "outline-variant": "#d9c2b0",
+            "error-container": "#ffdad6",
+            "surface-default": "#FFFFFF",
+            "border-subtle": "#EEDBCA",
+            "tertiary-fixed": "#f6dfc3",
+            "primary-fixed": "#ffdcbe",
+            "surface-container": "#ffe9e2",
+            "surface-tint": "#8b5000",
+            "outline": "#867464",
+            "surface": "#fff8f6",
+            "secondary-fixed": "#fee08f",
+            "on-error-container": "#93000a",
+            "on-surface-variant": "#534436",
+            "surface-subtle": "#FFF9F0",
+            "primary-container": "#f69d39",
+            "on-tertiary-fixed": "#251a09",
+            "surface-dim": "#ffd0bf",
+            "background": "#fff8f6",
+            "on-surface": "#370e00",
+            "on-secondary-container": "#76601c",
+            "on-primary-container": "#663900",
+            "surface-bright": "#fff8f6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "margin": "1rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "space-lg": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Nunito Sans", "sans-serif"],
+            "display-lg": ["Nunito Sans", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"],
+            "title-md": ["Nunito Sans", "sans-serif"],
+            "label-lg": ["Nunito Sans", "sans-serif"],
+            "title-sm": ["Nunito Sans", "sans-serif"],
+            "label-sm": ["Nunito Sans", "sans-serif"],
+            "headline-lg": ["Nunito Sans", "sans-serif"],
+            "body-lg": ["Nunito Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "display-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-lg": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Nunito', 'Nunito Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Design System Specific Shadow Tiers */
+    .elevation-1 {
+      box-shadow: 0 2px 8px rgba(98, 43, 20, 0.08);
+    }
+    .elevation-2 {
+      box-shadow: 0 -4px 16px rgba(98, 43, 20, 0.10), 0 4px 16px rgba(98, 43, 20, 0.12);
+    }
+  </style>
+</head>
+<body class="bg-background-canvas min-h-screen text-on-surface antialiased flex justify-center selection:bg-primary-container selection:text-on-primary">
+<!-- Mobile Viewport Wrapper (360x800px ergonomics standard) -->
+<div class="relative w-full max-w-[420px] min-h-screen bg-background-canvas flex flex-col pb-36 overflow-x-hidden">
+<!-- 1. Top App Bar (Header) -->
+<header class="fixed top-0 left-0 right-0 max-w-[420px] mx-auto z-50 flex justify-between items-center px-margin h-14 bg-background-canvas/90 backdrop-blur-md transition-all duration-200">
+<button aria-label="Quay lại" class="w-10 h-10 rounded-full bg-surface-default flex items-center justify-center elevation-1 border border-border-subtle active:scale-95 transition-transform duration-100 text-on-surface hover:bg-surface-subtle">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface font-extrabold tracking-tight">
+        Item Details
+      </h1>
+<button aria-label="Yêu thích món ăn" class="w-10 h-10 rounded-full bg-surface-default flex items-center justify-center elevation-1 border border-border-subtle active:scale-95 transition-transform duration-100 text-primary-container hover:bg-surface-subtle">
+<span class="material-symbols-outlined text-[22px] fill-icon" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</header>
+<!-- Main Scrollable Content -->
+<main class="w-full px-margin pt-16 flex flex-col gap-4">
+<!-- 2. Hero Food Image Card & Dynamic Badges -->
+<section class="relative w-full rounded-[20px] overflow-hidden elevation-1 bg-surface-default border border-border-subtle group">
+<div class="relative w-full aspect-[4/3] overflow-hidden bg-surface-subtle">
+<img alt="Combo Tacos Bò Phô Mai" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfTYHSUS1smmZc0CMqZIezODZlVdxulKMEGk7MSWUTsBEPKkuqM7w6GOs2Yss-dtZktKHh2bdPVatAUweslcvnqsl2rLIC-kWVldvOQGfUpKb0Ff8D4mJGHDMAWMMD5a1sVNyuyLkJFgX7UFFt1I0yw3p5dgb7AL9DsRMkwciY7SbS3EVL2K1SWjneoAyE6ujF9bGT15kBWIeuNSK25Zx3bR9N38zUopkSubxjizgAbQoZYx2LmGB9NzSd1HfYvVkGiyPEW1VWg1_I"/>
+<!-- Gradient Overlay at bottom for contrast -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+<!-- Top-Left Badge: Preparation Speed -->
+<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-[#DCFCE7]/95 backdrop-blur-sm border border-[#BBF7D0] px-2.5 py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[#166534] text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm text-[#166534] font-bold">4 phút</span>
+</div>
+<!-- Top-Right Badge: Student Promotion -->
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-status-error text-surface-default px-2.5 py-1 rounded-full shadow-md animate-pulse">
+<span class="material-symbols-outlined text-surface-default text-[14px]">local_fire_department</span>
+<span class="font-label-sm text-label-sm font-extrabold tracking-wide">Giờ vàng -15%</span>
+</div>
+<!-- Bottom Price Pill Tag -->
+<div class="absolute bottom-3 right-3 bg-surface-default/95 backdrop-blur-md px-3.5 py-1.5 rounded-full elevation-1 flex items-baseline gap-2 border border-border-subtle">
+<span class="font-display-lg text-display-lg text-primary-container font-extrabold">39.000đ</span>
+<span class="font-body-md text-body-md text-text-disabled line-through font-semibold">45.000đ</span>
+</div>
+</div>
+</section>
+<!-- 3. Food Info Card -->
+<section class="w-full bg-surface-default rounded-[16px] p-4 elevation-1 border border-border-subtle flex flex-col gap-2">
+<div class="flex items-start justify-between gap-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-extrabold leading-snug">
+            Combo Tacos Bò Phô Mai
+          </h2>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<div class="flex items-center gap-1 bg-secondary-container/30 px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-secondary text-[16px] fill-icon" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-label-sm text-text-muted">(128)</span>
+</div>
+<span class="text-text-disabled text-xs">•</span>
+<div class="flex items-center gap-1 text-text-muted font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-text-muted">local_mall</span>
+<span>Đã bán 450+ trên Campus</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed mt-1">
+          2 bánh tacos vỏ giòn rụm, thịt bò xào phô mai béo ngậy kèm sốt salsa cà chua ngò cay nhẹ. Phục vụ nhanh chuẩn 15 phút giờ nghỉ giữa tiết học!
+        </p>
+</section>
+<!-- 4. Group 1: Mức độ cay (Required - Single Select) -->
+<section class="w-full bg-surface-default rounded-[16px] p-4 elevation-1 border border-border-subtle flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">nutrition</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Mức độ cay</h3>
+</div>
+<span class="bg-[#FEE2E2] text-status-error text-[11px] font-bold px-2 py-0.5 rounded-full border border-[#FECACA]">
+            Bắt buộc
+          </span>
+</div>
+<div aria-label="Mức độ cay" class="flex flex-col gap-2 mt-1" role="radiogroup">
+<!-- Option 1 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-border-subtle bg-surface-subtle/50 hover:bg-surface-subtle cursor-pointer transition-colors duration-150 active:scale-[0.99]">
+<div class="flex flex-col pr-2">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Không cay</span>
+<span class="font-body-md text-body-md text-text-muted text-xs">Dành cho bạn không ăn cay • Đã có sẵn</span>
+</div>
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" name="spice_level" type="radio" value="none"/>
+<div class="w-5 h-5 rounded-full border-2 border-border-subtle peer-checked:border-primary-container flex items-center justify-center transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container scale-0 peer-checked:scale-100 transition-transform"></div>
+</div>
+</div>
+</label>
+<!-- Option 2 (Checked by Default) -->
+<label class="flex items-center justify-between p-3 rounded-xl border-2 border-primary-container bg-[#FFE8CC]/20 cursor-pointer transition-colors duration-150 active:scale-[0.99]">
+<div class="flex flex-col pr-2">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface font-bold">Cay vừa</span>
+<span class="bg-primary-container text-surface-default text-[10px] px-1.5 py-0.2 rounded font-bold">Chuẩn vị</span>
+</div>
+<span class="font-body-md text-body-md text-text-muted text-xs">Salsa ớt nhẹ dịu vị êm bụng</span>
+</div>
+<div class="relative flex items-center justify-center">
+<input checked="" class="peer sr-only" name="spice_level" type="radio" value="medium"/>
+<div class="w-5 h-5 rounded-full border-2 border-primary-container flex items-center justify-center transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container scale-100 transition-transform"></div>
+</div>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-border-subtle bg-surface-subtle/50 hover:bg-surface-subtle cursor-pointer transition-colors duration-150 active:scale-[0.99]">
+<div class="flex flex-col pr-2">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Cay nhiều</span>
+<span class="font-body-md text-body-md text-text-muted text-xs">Thêm ớt Jalapeno nướng đậm đà, kích thích</span>
+</div>
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" name="spice_level" type="radio" value="hot"/>
+<div class="w-5 h-5 rounded-full border-2 border-border-subtle peer-checked:border-primary-container flex items-center justify-center transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container scale-0 peer-checked:scale-100 transition-transform"></div>
+</div>
+</div>
+</label>
+</div>
+</section>
+<!-- 5. Group 2: Thêm Topping (Optional - Multi Select) -->
+<section class="w-full bg-surface-default rounded-[16px] p-4 elevation-1 border border-border-subtle flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">lunch_dining</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Thêm Topping</h3>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[11px] font-bold px-2 py-0.5 rounded-full">
+            Tùy chọn
+          </span>
+</div>
+<div class="flex flex-col gap-2 mt-1">
+<!-- Item 1: Phô mai kéo sợi (Default Checked) -->
+<label class="flex items-center justify-between p-3 rounded-xl border-2 border-primary-container bg-[#FFE8CC]/20 cursor-pointer transition-colors duration-150 active:scale-[0.99]">
+<div class="flex items-center gap-3">
+<div class="relative flex items-center justify-center">
+<input checked="" class="peer sr-only" id="top-cheese" onchange="updateTotal()" type="checkbox"/>
+<div class="w-5 h-5 rounded-[6px] bg-primary-container text-surface-default flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Thêm phô mai kéo sợi</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary-container font-extrabold">+5.000đ</span>
+</label>
+<!-- Item 2: Sốt bơ trứng -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-border-subtle bg-surface-subtle/50 hover:bg-surface-subtle cursor-pointer transition-colors duration-150 active:scale-[0.99]">
+<div class="flex items-center gap-3">
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" id="top-sauce" onchange="updateTotal()" type="checkbox"/>
+<div class="w-5 h-5 rounded-[6px] border border-border-subtle bg-surface-default peer-checked:bg-primary-container peer-checked:border-primary-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[16px] text-surface-default opacity-0 peer-checked:opacity-100 transition-opacity">check</span>
+</div>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-medium">Thêm sốt bơ trứng béo ngậy</span>
+</div>
+<span class="font-label-lg text-label-lg text-text-muted font-bold">+3.000đ</span>
+</label>
+<!-- Item 3: Thịt bò băm xào thơm -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-border-subtle bg-surface-subtle/50 hover:bg-surface-subtle cursor-pointer transition-colors duration-150 active:scale-[0.99]">
+<div class="flex items-center gap-3">
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" id="top-beef" onchange="updateTotal()" type="checkbox"/>
+<div class="w-5 h-5 rounded-[6px] border border-border-subtle bg-surface-default peer-checked:bg-primary-container peer-checked:border-primary-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[16px] text-surface-default opacity-0 peer-checked:opacity-100 transition-opacity">check</span>
+</div>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-medium">Thêm thịt bò băm xào thơm</span>
+</div>
+<span class="font-label-lg text-label-lg text-text-muted font-bold">+10.000đ</span>
+</label>
+<!-- Item 4: Bánh Tacos giòn -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-border-subtle bg-surface-subtle/50 hover:bg-surface-subtle cursor-pointer transition-colors duration-150 active:scale-[0.99]">
+<div class="flex items-center gap-3">
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" id="top-taco" onchange="updateTotal()" type="checkbox"/>
+<div class="w-5 h-5 rounded-[6px] border border-border-subtle bg-surface-default peer-checked:bg-primary-container peer-checked:border-primary-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[16px] text-surface-default opacity-0 peer-checked:opacity-100 transition-opacity">check</span>
+</div>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-medium">Thêm bánh Tacos giòn</span>
+</div>
+<span class="font-label-lg text-label-lg text-text-muted font-bold">+12.000đ</span>
+</label>
+</div>
+</section>
+<!-- 6. Group 3: Ghi chú cho bếp (Special Instructions) -->
+<section class="w-full bg-surface-default rounded-[16px] p-4 elevation-1 border border-border-subtle flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">edit_note</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Ghi chú cho bếp</h3>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface-subtle border border-border-subtle rounded-xl p-3 font-body-md text-body-md text-on-surface placeholder:text-text-disabled focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container resize-none transition-all" placeholder="Ví dụ: Không để hành lá, để riêng sốt salsa, lấy thêm khăn giấy &amp; thìa dĩa..." rows="3"></textarea>
+</div>
+</section>
+<!-- Campus Pick-up Guarantee Badge -->
+<div class="flex items-center justify-center gap-2 py-2 text-text-muted font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-status-success text-[18px]">verified</span>
+<span>Cam kết giao nhanh kịp giờ vào giảng đường</span>
+</div>
+</main>
+<!-- 7. Sticky Bottom CTA Bar -->
+<footer class="fixed bottom-0 left-0 right-0 max-w-[420px] mx-auto z-50 bg-surface-default border-t border-border-subtle elevation-2 px-margin py-3 flex flex-col gap-2.5">
+<!-- Stepper and Subtotal preview row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<!-- Stepper Counter -->
+<div class="flex items-center bg-surface-subtle border border-border-subtle rounded-full p-1 shadow-sm">
+<button aria-label="Giảm số lượng" class="w-8 h-8 rounded-full bg-surface-default border border-border-subtle flex items-center justify-center text-on-surface active:scale-90 transition-transform disabled:opacity-40" id="btn-minus" onclick="adjustQuantity(-1)">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="w-9 text-center font-headline-md text-headline-md text-on-surface font-extrabold select-none" id="quantity-display">
+              1
+            </span>
+<button aria-label="Tăng số lượng" class="w-8 h-8 rounded-full bg-primary-container text-surface-default flex items-center justify-center active:scale-90 transition-transform shadow-sm" id="btn-plus" onclick="adjustQuantity(1)">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Calculated Price Summary -->
+<div class="text-right flex flex-col">
+<span class="font-label-sm text-label-sm text-text-muted">Tổng cộng</span>
+<span class="font-headline-lg text-headline-lg text-on-surface font-extrabold" id="summary-price">
+            44.000đ
+          </span>
+</div>
+</div>
+<!-- Primary Action CTA Button (Height: 48dp, 12px border radius, ergonomically optimized) -->
+<button class="w-full h-12 bg-primary-container hover:bg-primary-pressed active:bg-primary-pressed text-surface-default rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.98] shadow-md font-bold" id="btn-add-to-cart" onclick="triggerAddToCart()">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span id="cta-button-text">Thêm vào giỏ hàng • 44.000đ</span>
+</button>
+</footer>
+</div>
+<!-- Inline Micro-interactions Script -->
+<script>
+    let quantity = 1;
+    const baseItemPrice = 39000;
+
+    function calculateUnitPrice() {
+      let extra = 0;
+      if (document.getElementById('top-cheese') && document.getElementById('top-cheese').checked) extra += 5000;
+      if (document.getElementById('top-sauce') && document.getElementById('top-sauce').checked) extra += 3000;
+      if (document.getElementById('top-beef') && document.getElementById('top-beef').checked) extra += 10000;
+      if (document.getElementById('top-taco') && document.getElementById('top-taco').checked) extra += 12000;
+      return baseItemPrice + extra;
+    }
+
+    function updateTotal() {
+      const unit = calculateUnitPrice();
+      const total = unit * quantity;
+      const formattedTotal = total.toLocaleString('vi-VN') + 'đ';
+      
+      const summaryEl = document.getElementById('summary-price');
+      const ctaTextEl = document.getElementById('cta-button-text');
+      
+      if (summaryEl) summaryEl.textContent = formattedTotal;
+      if (ctaTextEl) ctaTextEl.textContent = `Thêm vào giỏ hàng • ${formattedTotal}`;
+    }
+
+    function adjustQuantity(delta) {
+      quantity = Math.max(1, Math.min(20, quantity + delta));
+      const displayEl = document.getElementById('quantity-display');
+      const minusBtn = document.getElementById('btn-minus');
+      
+      if (displayEl) displayEl.textContent = quantity;
+      if (minusBtn) minusBtn.disabled = (quantity <= 1);
+      
+      updateTotal();
+    }
+
+    function triggerAddToCart() {
+      const ctaBtn = document.getElementById('btn-add-to-cart');
+      const originalHtml = ctaBtn.innerHTML;
+      
+      // Temporary success state feedback
+      ctaBtn.classList.replace('bg-primary-container', 'bg-status-success');
+      ctaBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[20px]">check_circle</span>
+        <span>Đã thêm vào giỏ!</span>
+      `;
+
+      setTimeout(() => {
+        ctaBtn.classList.replace('bg-status-success', 'bg-primary-container');
+        ctaBtn.innerHTML = originalHtml;
+        updateTotal();
+      }, 1400);
+    }
+  </script>
+</body></html>

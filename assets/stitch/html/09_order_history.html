@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lịch sử đơn hàng - FtaCode Campus</title>
+<!-- Google Fonts: Nunito & Nunito Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed": "#f6dfc3",
+            "inverse-surface": "#54210a",
+            "on-tertiary-fixed-variant": "#534430",
+            "outline": "#867464",
+            "error": "#ba1a1a",
+            "primary-container": "#f69d39",
+            "surface-container-high": "#ffe2d8",
+            "surface-bright": "#fff8f6",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#fee08f",
+            "outline-variant": "#d9c2b0",
+            "on-primary-fixed": "#2d1600",
+            "inverse-primary": "#ffb871",
+            "surface": "#fff8f6",
+            "text-disabled": "#C8B3A6",
+            "on-error-container": "#93000a",
+            "surface-default": "#FFFFFF",
+            "status-error": "#DC2626",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#ffede7",
+            "surface-subtle": "#FFF9F0",
+            "status-success": "#16A34A",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#584400",
+            "on-primary": "#ffffff",
+            "on-surface": "#370e00",
+            "on-primary-container": "#663900",
+            "primary-fixed-dim": "#ffb871",
+            "text-muted": "#966A55",
+            "surface-container": "#ffe9e2",
+            "on-tertiary-container": "#50422d",
+            "on-primary-fixed-variant": "#6a3c00",
+            "secondary-fixed-dim": "#e1c476",
+            "tertiary-fixed-dim": "#d9c3a9",
+            "on-secondary-container": "#76601c",
+            "secondary-container": "#fbdd8c",
+            "background-canvas": "#FFF5E5",
+            "tertiary-container": "#c3ae94",
+            "surface-container-highest": "#ffdbce",
+            "primary": "#8b5000",
+            "on-surface-variant": "#534436",
+            "on-secondary-fixed": "#241a00",
+            "surface-container-low": "#fff1ec",
+            "primary-pressed": "#E0851F",
+            "border-subtle": "#EEDBCA",
+            "tertiary": "#6c5c46",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#ffd0bf",
+            "background": "#fff8f6",
+            "secondary": "#725c18",
+            "surface-variant": "#ffdbce",
+            "on-tertiary-fixed": "#251a09",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#8b5000",
+            "primary-fixed": "#ffdcbe",
+            "on-background": "#370e00"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "margin": "1rem"
+          },
+          fontFamily: {
+            "headline-md": ["Nunito Sans", "Nunito", "sans-serif"],
+            "title-sm": ["Nunito Sans", "Nunito", "sans-serif"],
+            "body-md": ["Nunito Sans", "Nunito", "sans-serif"],
+            "display-lg": ["Nunito Sans", "Nunito", "sans-serif"],
+            "headline-lg": ["Nunito Sans", "Nunito", "sans-serif"],
+            "body-lg": ["Nunito Sans", "Nunito", "sans-serif"],
+            "label-lg": ["Nunito Sans", "Nunito", "sans-serif"],
+            "label-sm": ["Nunito Sans", "Nunito", "sans-serif"],
+            "title-md": ["Nunito Sans", "Nunito", "sans-serif"]
+          },
+          fontSize: {
+            "headline-md": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "title-sm": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "display-lg": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+            "headline-lg": ["20px", { lineHeight: "28px", fontWeight: "700" }],
+            "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+            "label-lg": ["14px", { lineHeight: "20px", fontWeight: "700" }],
+            "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+            "title-md": ["16px", { lineHeight: "24px", fontWeight: "600" }]
+          },
+          boxShadow: {
+            'elevation-1': '0 2px 8px rgba(98, 43, 20, 0.08)',
+            'elevation-2': '0 4px 16px rgba(98, 43, 20, 0.12)',
+            'elevation-3': '0 8px 24px rgba(98, 43, 20, 0.18)'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #FFF5E5;
+      color: #622B14;
+      font-family: 'Nunito Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex justify-center bg-[#FFF5E5]">
+<!-- Mobile Viewport Wrapper (Max 420px for campus handheld layout) -->
+<div class="w-full max-w-[420px] bg-background-canvas min-h-screen relative flex flex-col shadow-elevation-2 pb-28">
+<!-- 1. TOP APP BAR (Sticky Header) -->
+<header class="sticky top-0 z-40 bg-surface-subtle/95 backdrop-blur-md px-margin pt-4 pb-2 shadow-elevation-1 transition-all duration-200">
+<div class="flex items-center justify-between h-12">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-surface-default shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-on-primary">local_fire_department</span>
+</div>
+<div>
+<h1 class="font-headline-lg text-headline-lg text-[#622B14] tracking-tight">Đơn hàng của tôi</h1>
+<p class="font-label-sm text-label-sm text-text-muted">Nghỉ giữa giờ 15p • Campus FtaCode</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center space-x-1">
+<button aria-label="Hỏi đáp" class="w-10 h-10 rounded-full flex items-center justify-center text-[#622B14] hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">help_outline</span>
+</button>
+<button aria-label="Thông báo" class="w-10 h-10 rounded-full flex items-center justify-center text-[#622B14] hover:bg-surface-container relative active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-[#F69D39] rounded-full ring-2 ring-surface-subtle"></span>
+</button>
+</div>
+</div>
+<!-- Segmented Navigation Tabs -->
+<div class="flex mt-3 p-1 bg-[#FFF0DB] rounded-xl border border-border-subtle" role="tablist">
+<button aria-selected="true" class="flex-1 py-2 rounded-lg font-headline-md text-headline-md text-on-surface bg-surface-default shadow-elevation-1 transition-all flex items-center justify-center gap-1.5 border border-[#F69D39]/30" id="tab-active" role="tab">
+<span class="text-[#622B14]">Đang xử lý</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#F69D39] text-surface-default leading-none">1</span>
+</button>
+<button aria-selected="false" class="flex-1 py-2 rounded-lg font-title-sm text-title-sm text-text-muted hover:text-[#622B14] transition-all flex items-center justify-center gap-1.5" id="tab-history" role="tab">
+<span>Lịch sử</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-border-subtle text-text-muted leading-none">5</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-margin pt-4 space-y-5">
+<!-- 2. ACTIVE ORDER TRACKER CARD (Hero Spotlight) -->
+<section aria-label="Đơn hàng đang xử lý" class="relative">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#F69D39] fill text-[18px]">bolt</span>
+<span class="font-headline-md text-[15px] text-[#622B14]">Ưu tiên giờ giải lao</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#F69D39] font-bold animate-pulse">Sắp xong!</span>
+</div>
+<div class="bg-surface-default rounded-[16px] border-2 border-[#F69D39]/60 p-space-lg shadow-elevation-2 relative overflow-hidden">
+<!-- Subtle warm banner glow -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#FFE8CC]/40 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+<!-- Card Header Info -->
+<div class="flex items-start justify-between pb-3 border-b border-border-subtle">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-display-lg text-display-lg text-[#622B14] tracking-tight">#A-204</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-[#FFE8CC] text-[#622B14] font-bold border border-[#F69D39]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F69D39] mr-1.5 animate-ping"></span>
+                  Đang làm
+                </span>
+</div>
+<p class="flex items-center text-body-md font-body-md text-text-muted mt-1">
+<span class="material-symbols-outlined text-[16px] mr-1 text-[#F69D39]">storefront</span>
+                Kiosk Tòa Alpha (Tầng 1)
+              </p>
+</div>
+<!-- Countdown Pill -->
+<div class="bg-[#FFE8CC] px-3 py-1.5 rounded-xl text-center border border-[#F69D39]/40 shadow-sm">
+<span class="block text-[10px] uppercase font-bold text-text-muted tracking-wider">Thời gian</span>
+<span class="font-headline-md text-[14px] text-[#622B14] flex items-center gap-0.5 justify-center">
+<span class="material-symbols-outlined text-[15px] text-[#F69D39]">hourglass_top</span>
+                ~3 phút
+              </span>
+</div>
+</div>
+<!-- STEP PROGRESS BAR / TRACKER -->
+<div class="py-4">
+<div class="relative flex items-center justify-between w-full">
+<!-- Background Connecting Line -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 h-1 w-full bg-border-subtle z-0"></div>
+<!-- Active Progress Fill (40%) -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 h-1 w-[40%] bg-[#F69D39] z-0 transition-all duration-500"></div>
+<!-- Step 1: Đã nhận -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-[#F69D39] text-surface-default flex items-center justify-center text-[12px] font-bold shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span class="text-[11px] font-bold text-[#622B14] mt-1.5">Đã nhận</span>
+</div>
+<!-- Step 2: Đang làm (ACTIVE) -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-7 h-7 rounded-full bg-[#F69D39] text-surface-default flex items-center justify-center ring-4 ring-[#FFE8CC] shadow-md animate-bounce">
+<span class="material-symbols-outlined text-[15px] fill">skillet</span>
+</div>
+<span class="text-[11px] font-bold text-[#F69D39] mt-1">Đang làm</span>
+</div>
+<!-- Step 3: Sẵn sàng -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-surface-default border-2 border-border-subtle text-text-disabled flex items-center justify-center text-[11px]">
+                  3
+                </div>
+<span class="text-[11px] font-medium text-text-muted mt-1.5">Sẵn sàng</span>
+</div>
+<!-- Step 4: Hoàn tất -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-surface-default border-2 border-border-subtle text-text-disabled flex items-center justify-center text-[11px]">
+                  4
+                </div>
+<span class="text-[11px] font-medium text-text-muted mt-1.5">Hoàn tất</span>
+</div>
+</div>
+</div>
+<!-- Order Summary Items with Picture Thumbnail -->
+<div class="bg-surface-subtle rounded-xl p-3 border border-border-subtle flex items-center gap-3">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-border-subtle relative">
+<img class="w-full h-full object-cover" data-alt="Close-up shot of three crispy Mexican beef tacos topped with cheddar cheese, diced fresh red tomatoes, and sour cream on a wooden board, warm ambient cafeteria lighting, appetite-inducing high contrast food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIC18siUnkBVReUDLiqc5ggfBpB8QKpZ0-GbGG8Uo44uv4dBGbsXMNLFCRu7MuYfZyXyWqebVuKXispMtXPBlCtS3NWbYwNFBi21OUSyCCvj74AIno2vTeAnyc-KJ3OTMaC5QsMMqFCzLuuTIKT2hGvU8febe3khNVvWQZebSK-JNFXyCwkh2icHYUc1lNzQ12yS-d-MoRYjnjJAsPGs04btGPsgae9oDzP0qdwogXMv7faGJP4sbpMJ6K6rPxNv7e59SgeoQBbQGY"/>
+<span class="absolute bottom-0 right-0 bg-[#622B14] text-surface-default text-[10px] font-bold px-1 rounded-tl-md">x2</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-headline-md text-title-sm text-[#622B14] truncate">1x Combo Tacos Bò Phô Mai Giòn</p>
+<p class="font-body-md text-[13px] text-text-muted truncate">+ 1x Trà Đào Chanh Sả (Ít đá, 50% đường)</p>
+<div class="flex items-center justify-between mt-1">
+<span class="text-label-sm font-bold text-[#F69D39]">54.000đ</span>
+<span class="text-[11px] text-status-success font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">paid</span> Đã thanh toán Momo
+                </span>
+</div>
+</div>
+</div>
+<!-- CTA: View QR Pickup Code -->
+<button class="mt-3.5 w-full min-h-[48px] bg-[#F69D39] hover:bg-primary-pressed active:scale-[0.98] text-surface-default font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 shadow-elevation-1 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">qr_code_scanner</span>
+<span>Xem mã QR nhận món ngay</span>
+</button>
+</div>
+</section>
+<!-- 3. PAST ORDERS LIST (Đơn hàng gần đây) -->
+<section aria-label="Lịch sử đơn hàng cũ" class="space-y-3">
+<div class="flex items-center justify-between pt-1">
+<div>
+<h2 class="font-headline-md text-headline-md text-[#622B14]">Đơn hàng gần đây</h2>
+<p class="font-body-md text-[13px] text-text-muted">Đặt lại chỉ với 1 chạm để kịp giờ học</p>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded-md text-[11px] font-bold bg-[#FFE8CC] text-[#622B14] border border-[#F69D39]/30">
+<span class="material-symbols-outlined text-[13px] text-[#F69D39] mr-1">flash_on</span>
+            Nhanh chóng đặt lại
+          </span>
+</div>
+<!-- PAST ORDER 1 -->
+<article class="bg-surface-default rounded-[16px] border border-border-subtle p-space-lg shadow-elevation-1 space-y-3 transition-transform active:scale-[0.99]">
+<div class="flex items-center justify-between pb-2 border-b border-border-subtle/80">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-[#FFF5E5] flex items-center justify-center text-[#622B14] font-bold text-xs border border-border-subtle">
+                #189
+              </span>
+<div>
+<span class="font-title-sm text-title-sm text-[#622B14] block">Kiosk Tòa Alpha</span>
+<span class="font-body-md text-[12px] text-text-muted">14/10/2026 • 10:15</span>
+</div>
+</div>
+<!-- Green Delivered Badge -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-green-50 text-status-success border border-green-200">
+<span class="material-symbols-outlined text-[13px] mr-1">check_circle</span>
+              Đã nhận lúc 10:22
+            </span>
+</div>
+<!-- Product Details Row -->
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-subtle flex-shrink-0 border border-border-subtle">
+<img class="w-full h-full object-cover" data-alt="Top down overhead photo of a delicious crispy taco combo meal served on campus cafeteria paper wrap with dipping sauce on a light wooden table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWLbWK9o3dQuBWi9-Mn-ViucLHHnjfkRsSIgjrxHtEHXcJyzy80_Ez0AYjXwDL6mmHjA1aeC3IYUbqRImIv7C3AxeL0la6zyFJhTLLJgSKyJX3wNtYkYCUq9sQ5htAE7453UTeeM7lB_W7PjxmZugGEp-0tHWEdVVMXGr9ME_jxf2fYqi_mMqSpn7pkbqHs6QLha9rsakgp54kdVLEtg_lN4M-K0VX5DPuKhx9NPDXNQ-4202cPPJtenCw75i24I_fULLAxESu3zfV"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-headline-md text-[14px] text-[#622B14] truncate">Combo Tacos Bò Phô Mai x1</p>
+<p class="font-body-md text-[12px] text-text-muted truncate">Trà Đào Chanh Sả x1 • 54.000đ</p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-[16px] text-[#622B14]">54.000đ</span>
+<span class="block text-[11px] text-text-muted">2 món</span>
+</div>
+</div>
+<!-- Action Button: Reorder -->
+<div class="pt-1 flex items-center gap-2">
+<button class="flex-1 min-h-[44px] bg-[#FFE8CC] hover:bg-[#fedcaa] active:scale-95 text-[#622B14] font-label-lg text-[13px] rounded-xl flex items-center justify-center gap-1.5 transition-all border border-[#F69D39]/30" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#F69D39]">replay</span>
+<span>Đặt lại món này</span>
+</button>
+<button aria-label="Xem chi tiết hóa đơn" class="min-h-[44px] px-3 bg-surface-subtle hover:bg-surface-container rounded-xl border border-border-subtle text-text-muted flex items-center justify-center active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">receipt</span>
+</button>
+</div>
+</article>
+<!-- PAST ORDER 2 -->
+<article class="bg-surface-default rounded-[16px] border border-border-subtle p-space-lg shadow-elevation-1 space-y-3 transition-transform active:scale-[0.99]">
+<div class="flex items-center justify-between pb-2 border-b border-border-subtle/80">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-[#FFF5E5] flex items-center justify-center text-[#622B14] font-bold text-xs border border-border-subtle">
+                #142
+              </span>
+<div>
+<span class="font-title-sm text-title-sm text-[#622B14] block">Kiosk Beta Canteen</span>
+<span class="font-body-md text-[12px] text-text-muted">12/10/2026 • 14:05</span>
+</div>
+</div>
+<!-- Green Delivered Badge -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-green-50 text-status-success border border-green-200">
+<span class="material-symbols-outlined text-[13px] mr-1">check_circle</span>
+              Đã nhận lúc 14:15
+            </span>
+</div>
+<!-- Product Details Row -->
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-subtle flex-shrink-0 border border-border-subtle">
+<img class="w-full h-full object-cover" data-alt="A savory bowl of Korean spicy stir-fried noodles topped with grilled chicken cubes, scallions and sesame seeds, placed inside a modern campus food tray container." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8cHP9HjvP0UM9WNSe1mbldJ-Jt4AUNBv7mmMKJdriFmQFifPI8rgRqTZvlRdGrjzQUyFKnCtdheAzHY4ZKVY-TGAJgP1tYuDvC2dvUX_-ji1zjUVCTcnh9dJfe_XHUIxDsR13TNflCDVQvFCJivcw7XIR4tOeZXc3v39ouCzr8YvVuHv_Scmy9Ojq8Gxpj35pv8KR4PH3qTIEg3VGsoF55bsuXnzMr8P-CNsq_9OiGRKmE28nUAdvCRx9CPIX1oaIKdnywB3wwh61"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-headline-md text-[14px] text-[#622B14] truncate">Mì Trộn Gà Cay Hàn Quốc x1</p>
+<p class="font-body-md text-[12px] text-text-muted truncate">Cấp độ 2 • Trứng lòng đào</p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-[16px] text-[#622B14]">35.000đ</span>
+<span class="block text-[11px] text-text-muted">1 món</span>
+</div>
+</div>
+<!-- Action Button: Reorder -->
+<div class="pt-1 flex items-center gap-2">
+<button class="flex-1 min-h-[44px] bg-[#FFE8CC] hover:bg-[#fedcaa] active:scale-95 text-[#622B14] font-label-lg text-[13px] rounded-xl flex items-center justify-center gap-1.5 transition-all border border-[#F69D39]/30" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#F69D39]">replay</span>
+<span>Đặt lại món này</span>
+</button>
+<button aria-label="Xem chi tiết hóa đơn" class="min-h-[44px] px-3 bg-surface-subtle hover:bg-surface-container rounded-xl border border-border-subtle text-text-muted flex items-center justify-center active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">receipt</span>
+</button>
+</div>
+</article>
+<!-- Past Order 3 (Collapsed micro-history card for campus quick reference) -->
+<article class="bg-surface-default/70 rounded-[14px] border border-border-subtle p-3 flex items-center justify-between text-body-md">
+<div class="flex items-center space-x-2.5">
+<span class="w-7 h-7 rounded-md bg-[#FFF5E5] flex items-center justify-center text-[#622B14] font-bold text-[11px]">
+              #098
+            </span>
+<div>
+<p class="font-title-sm text-[13px] text-[#622B14] leading-tight">Bánh Mì Chảo Đặc Biệt x1</p>
+<span class="text-[11px] text-text-muted">08/10/2026 • 42.000đ</span>
+</div>
+</div>
+<button class="px-3 py-1.5 bg-[#FFF0DB] text-[#622B14] hover:bg-[#FFE8CC] rounded-lg text-label-sm font-bold border border-border-subtle flex items-center gap-1 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[14px] text-[#F69D39]">refresh</span>
+            Đặt lại
+          </button>
+</article>
+</section>
+<!-- Campus Break Tips Banner -->
+<div class="p-3.5 bg-gradient-to-r from-[#FFE8CC] to-[#FFF5E5] rounded-xl border border-[#F69D39]/30 flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-[#F69D39] text-surface-default flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">alarm_on</span>
+</div>
+<p class="text-[12px] font-body-md text-[#622B14] leading-tight">
+<strong>Mẹo FtaCode:</strong> Đặt trước giờ ra chơi 5 phút để kiosk chuẩn bị sẵn, bạn chỉ việc quét mã và vào lớp đúng giờ!
+        </p>
+</div>
+</main>
+<!-- 4. BOTTOM NAVIGATION BAR (Fixed at bottom with Safe Area) -->
+<!-- Matches Shared Components BottomNavBar specifications with Active state on 'Đơn hàng' -->
+<nav aria-label="Điều hướng chính" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[420px] z-50 flex justify-around items-center px-margin py-space-sm bg-surface-default shadow-elevation-2 border-t border-border-subtle">
+<!-- Tab 1: Trang chủ -->
+<a class="flex flex-col items-center justify-center text-text-muted hover:text-[#622B14] px-space-md py-space-xs font-label-sm text-label-sm min-w-[64px] min-h-[48px] transition-colors active:scale-95" href="#home">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-[11px] mt-0.5">Trang chủ</span>
+</a>
+<!-- Tab 2: Thực đơn -->
+<a class="flex flex-col items-center justify-center text-text-muted hover:text-[#622B14] px-space-md py-space-xs font-label-sm text-label-sm min-w-[64px] min-h-[48px] transition-colors active:scale-95" href="#menu">
+<span class="material-symbols-outlined text-[24px]">restaurant_menu</span>
+<span class="text-[11px] mt-0.5">Thực đơn</span>
+</a>
+<!-- Tab 3: Đơn hàng (ACTIVE TAB - Exactly mapped to order history context) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-space-md py-space-xs font-label-sm text-label-sm min-w-[72px] min-h-[48px] shadow-sm transition-transform active:scale-95" href="#orders">
+<span class="material-symbols-outlined text-[24px] fill" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="text-[11px] font-bold mt-0.5">Đơn hàng</span>
+</a>
+<!-- Tab 4: Cá nhân -->
+<a class="flex flex-col items-center justify-center text-text-muted hover:text-[#622B14] px-space-md py-space-xs font-label-sm text-label-sm min-w-[64px] min-h-[48px] transition-colors active:scale-95" href="#profile">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[11px] mt-0.5">Cá nhân</span>
+</a>
+</nav>
+</div>
+<!-- Micro-interaction script for switching tabs -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabActive = document.getElementById('tab-active');
+      const tabHistory = document.getElementById('tab-history');
+
+      tabActive.addEventListener('click', () => {
+        tabActive.className = "flex-1 py-2 rounded-lg font-headline-md text-headline-md text-on-surface bg-surface-default shadow-elevation-1 transition-all flex items-center justify-center gap-1.5 border border-[#F69D39]/30";
+        tabActive.setAttribute('aria-selected', 'true');
+        tabHistory.className = "flex-1 py-2 rounded-lg font-title-sm text-title-sm text-text-muted hover:text-[#622B14] transition-all flex items-center justify-center gap-1.5";
+        tabHistory.setAttribute('aria-selected', 'false');
+      });
+
+      tabHistory.addEventListener('click', () => {
+        tabHistory.className = "flex-1 py-2 rounded-lg font-headline-md text-headline-md text-on-surface bg-surface-default shadow-elevation-1 transition-all flex items-center justify-center gap-1.5 border border-[#F69D39]/30";
+        tabHistory.setAttribute('aria-selected', 'true');
+        tabActive.className = "flex-1 py-2 rounded-lg font-title-sm text-title-sm text-text-muted hover:text-[#622B14] transition-all flex items-center justify-center gap-1.5";
+        tabActive.setAttribute('aria-selected', 'false');
+      });
+    });
+  </script>
+</body></html>
