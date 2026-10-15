@@ -36,9 +36,7 @@ const screenDefs = [
 const screenSvgs = {};
 
 for (const sc of screenDefs) {
-  // get inner lines
   const slice = lines.slice(sc.start - 1, sc.end);
-  // remove outer <g ...> and last </g>
   let inner = slice.join('\n');
   inner = inner.replace(/^\s*<g id="[^"]+"[^>]*>/, '');
   inner = inner.replace(/<\/g>\s*$/, '');
@@ -159,46 +157,44 @@ async function main() {
     }
   }
 
-  // Helper reaction
+  // Helper reaction chuẩn chỉnh Figma Plugin API schema: { trigger, actions: [...] }
   async function addReaction(fromNode, toFrame, navigation = "NAVIGATE") {
+    if (!fromNode || !toFrame) return;
     const reaction = {
-      action: {
-        type: "NODE",
-        destinationId: toFrame.id,
-        navigation: navigation,
-        transition: {
-          type: "DISSOLVE",
-          easing: { type: "EASE_IN_AND_OUT" },
-          duration: 0.2
-        },
-        preserveScrollPosition: false
-      },
-      trigger: {
-        type: "ON_CLICK"
-      }
+      trigger: { type: "ON_CLICK" },
+      actions: [
+        {
+          type: "NODE",
+          destinationId: toFrame.id,
+          navigation: navigation,
+          transition: {
+            type: "DISSOLVE",
+            easing: { type: "EASE_IN_AND_OUT" },
+            duration: 0.25
+          },
+          preserveScrollPosition: false
+        }
+      ]
     };
     try {
       if (fromNode.setReactionsAsync) {
         await fromNode.setReactionsAsync([reaction]);
-      } else {
-        fromNode.reactions = [reaction];
       }
     } catch (err) {
-      try { fromNode.reactions = [reaction]; } catch (e2) {}
+      console.warn("Could not set reaction on " + fromNode.name, err);
     }
   }
 
   async function createHotspot(parentFrame, name, x, y, width, height, targetFrame, navigation = "NAVIGATE") {
+    if (!parentFrame || !targetFrame) return null;
     const hs = figma.createFrame();
     hs.name = name;
     hs.resize(width, height);
     hs.x = x;
     hs.y = y;
-    hs.fills = [{ type: "SOLID", color: { r: 0.965, g: 0.616, b: 0.224 }, opacity: 0.001 }];
+    hs.fills = [{ type: "SOLID", color: { r: 0.965, g: 0.616, b: 0.224 }, opacity: 0.005 }];
     parentFrame.appendChild(hs);
-    if (targetFrame) {
-      await addReaction(hs, targetFrame, navigation);
-    }
+    await addReaction(hs, targetFrame, navigation);
     return hs;
   }
 
@@ -206,17 +202,17 @@ async function main() {
 
   // Screen placement coordinates
   const layoutCoords = {
-    SCR_01_Onboarding: { x: 40, y: 120, name: "SCR-01: Onboarding" },
-    SCR_02_Home: { x: 460, y: 120, name: "SCR-02: Trang chủ (Home)" },
-    SCR_03_Menu: { x: 880, y: 120, name: "SCR-03: Thực đơn Campus" },
-    SCR_04_Detail: { x: 1300, y: 120, name: "SCR-04: Chi tiết món ăn" },
-    SCR_05_Cart: { x: 40, y: 1000, name: "SCR-05: Giỏ hàng & Voucher" },
-    SCR_06_Checkout: { x: 460, y: 1000, name: "SCR-06: Cổng thanh toán" },
-    SCR_07_Tracking: { x: 880, y: 1000, name: "SCR-07: Trạng thái & QR" },
-    SCR_08_History: { x: 1300, y: 1000, name: "SCR-08: Lịch sử đơn hàng" },
-    SCR_05_Empty_Cart: { x: 40, y: 1880, name: "SCR-05-EMPTY: Giỏ hàng trống" },
-    SCR_06_Error_Recovery: { x: 460, y: 1880, name: "SCR-06-ERR: Báo lỗi MoMo (Giữ món)" },
-    Dialog_Cancel: { x: 880, y: 1980, name: "Dialog: Xác nhận hủy đơn hàng" }
+    SCR_01_Onboarding: { x: 40, y: 150, name: "SCR-01: Onboarding" },
+    SCR_02_Home: { x: 460, y: 150, name: "SCR-02: Trang chủ (Home)" },
+    SCR_03_Menu: { x: 880, y: 150, name: "SCR-03: Thực đơn Campus" },
+    SCR_04_Detail: { x: 1300, y: 150, name: "SCR-04: Chi tiết món ăn" },
+    SCR_05_Cart: { x: 40, y: 1030, name: "SCR-05: Giỏ hàng & Voucher" },
+    SCR_06_Checkout: { x: 460, y: 1030, name: "SCR-06: Cổng thanh toán" },
+    SCR_07_Tracking: { x: 880, y: 1030, name: "SCR-07: Trạng thái & QR" },
+    SCR_08_History: { x: 1300, y: 1030, name: "SCR-08: Lịch sử đơn hàng" },
+    SCR_05_Empty_Cart: { x: 40, y: 1910, name: "SCR-05-EMPTY: Giỏ hàng trống" },
+    SCR_06_Error_Recovery: { x: 460, y: 1910, name: "SCR-06-ERR: Báo lỗi MoMo (Giữ món)" },
+    Dialog_Cancel: { x: 880, y: 2010, name: "Dialog: Xác nhận hủy đơn hàng" }
   };
 
   function instantiateScreens(targetPage, prefix = "") {
@@ -262,14 +258,12 @@ async function main() {
 
   // ================= 03 FINAL UI =================
   if (pageMap["03 Final UI"]) {
-    // 10 top-level frames
     instantiateScreens(pageMap["03 Final UI"], "");
 
-    // Label card
     const descCard = figma.createFrame();
     descCard.name = "Final UI - 8 Main Screens + 2 Variants Specs";
-    descCard.resize(1620, 90);
-    descCard.x = 40; descCard.y = 15;
+    descCard.resize(1620, 100);
+    descCard.x = 40; descCard.y = 20;
     descCard.cornerRadius = 14;
     descCard.fills = [{ type: "SOLID", color: C.surface }];
     descCard.strokes = [{ type: "SOLID", color: C.border }];
@@ -416,23 +410,51 @@ async function main() {
     // 1. Guide Header Card
     const guideCard = figma.createFrame();
     guideCard.name = "Prototype Instructions & Flow Legend";
-    guideCard.resize(1620, 95);
-    guideCard.x = 40; guideCard.y = 15;
+    guideCard.resize(1620, 110);
+    guideCard.x = 40; guideCard.y = 20;
     guideCard.cornerRadius = 14;
     guideCard.fills = [{ type: "SOLID", color: C.surface }];
-    guideCard.strokes = [{ type: "SOLID", color: C.border }];
+    guideCard.strokes = [{ type: "SOLID", color: C.primary }];
+    guideCard.strokeWeight = 2;
     guideCard.paddingLeft = 24; guideCard.paddingTop = 14; guideCard.paddingRight = 24;
     guideCard.layoutMode = "VERTICAL"; guideCard.itemSpacing = 5;
 
-    guideCard.appendChild(createText("🚀 FtaCode Clickable Interactive Prototype — Đã nối sẵn dây & đặt 3 Flow Starting Points", 16, true, C.textPrimary));
-    guideCard.appendChild(createText("▶ BẤM NÚT PLAY Ở GÓC PHẢI TRÊN để trải nghiệm trực tiếp! Hoặc chọn tab 'Prototype' để xem mạng lưới dây xanh:", 13, true, C.primaryDark));
-    guideCard.appendChild(createText("• Flow 1: Đặt nhanh (<35s) | • Flow 2: Tùy chỉnh món (Cay & Topping) | • Flow 3: Phục hồi lỗi thanh toán MoMo", 12, false, C.textSecondary));
+    guideCard.appendChild(createText("🚀 CÁCH CHẠY & BẤM PROTOTYPE (ĐÃ NỐI DÂY TOÀN BỘ 10 MÀN HÌNH):", 16, true, C.primaryDark));
+    guideCard.appendChild(createText("👉 Cách 1 (Mở nhanh Inline): Chọn frame 'SCR-01: Onboarding' bên dưới -> Nhấn tổ hợp SHIFT + SPACE để mở điện thoại bấm thử trực tiếp!", 13, true, C.textPrimary));
+    guideCard.appendChild(createText("👉 Cách 2 (Toàn màn hình): Bấm nút PLAY (▶ Present) ở góc phải trên thanh công cụ Figma -> Chọn Flow 1, 2, hoặc 3 ở cột trái để test!", 13, true, C.success));
+    guideCard.appendChild(createText("⚠️ Lưu ý: Khi ở màn hình vẽ (Canvas), click chuột chỉ để chọn layer. Phải bật Play (▶) hoặc Shift + Space thì mới bấm chuyển trang được!", 12, false, C.error));
     protoPage.appendChild(guideCard);
 
     // 2. Instantiate standalone screen frames
     const pFrames = instantiateScreens(protoPage, "");
 
-    // 3. Connect Hotspots with Prototype Reactions
+    // 3. Frame-Level Fallback Reactions (Bấm vào bất cứ đâu trên frame là chuyển trang mượt mà)
+    if (pFrames.SCR_01_Onboarding && pFrames.SCR_02_Home) {
+      await addReaction(pFrames.SCR_01_Onboarding, pFrames.SCR_02_Home);
+    }
+    if (pFrames.SCR_04_Detail && pFrames.SCR_05_Cart) {
+      await addReaction(pFrames.SCR_04_Detail, pFrames.SCR_05_Cart);
+    }
+    if (pFrames.SCR_05_Cart && pFrames.SCR_06_Checkout) {
+      await addReaction(pFrames.SCR_05_Cart, pFrames.SCR_06_Checkout);
+    }
+    if (pFrames.SCR_06_Checkout && pFrames.SCR_07_Tracking) {
+      await addReaction(pFrames.SCR_06_Checkout, pFrames.SCR_07_Tracking);
+    }
+    if (pFrames.SCR_07_Tracking && pFrames.SCR_02_Home) {
+      await addReaction(pFrames.SCR_07_Tracking, pFrames.SCR_02_Home);
+    }
+    if (pFrames.SCR_06_Error_Recovery && pFrames.SCR_07_Tracking) {
+      await addReaction(pFrames.SCR_06_Error_Recovery, pFrames.SCR_07_Tracking);
+    }
+    if (pFrames.SCR_05_Empty_Cart && pFrames.SCR_03_Menu) {
+      await addReaction(pFrames.SCR_05_Empty_Cart, pFrames.SCR_03_Menu);
+    }
+    if (pFrames.SCR_08_History && pFrames.SCR_07_Tracking) {
+      await addReaction(pFrames.SCR_08_History, pFrames.SCR_07_Tracking);
+    }
+
+    // 4. Hotspot Button-Level Interactions (Nút bấm chuyên biệt)
     // Flow 1: SCR-01 -> SCR-02
     if (pFrames.SCR_01_Onboarding && pFrames.SCR_02_Home) {
       await createHotspot(pFrames.SCR_01_Onboarding, "Hotspot_CTA_Bắt_Đầu", 20, 680, 320, 52, pFrames.SCR_02_Home);
@@ -441,21 +463,16 @@ async function main() {
     // Flow 1 & 2: SCR-02 -> SCR-04 & SCR-05 & SCR-03 & SCR-08
     if (pFrames.SCR_02_Home) {
       if (pFrames.SCR_04_Detail) {
-        // Tap Food Card -> SCR-04 Detail (Flow 2)
         await createHotspot(pFrames.SCR_02_Home, "Hotspot_Card_Tacos_Bo", 16, 340, 260, 90, pFrames.SCR_04_Detail);
       }
       if (pFrames.SCR_05_Cart) {
-        // Quick add (+) -> SCR-05 Cart (Flow 1)
         await createHotspot(pFrames.SCR_02_Home, "Hotspot_Quick_Add_Tacos", 288, 385, 45, 45, pFrames.SCR_05_Cart);
-        // Cart icon on top bar -> SCR-05
         await createHotspot(pFrames.SCR_02_Home, "Hotspot_Top_Cart_Icon", 295, 40, 50, 45, pFrames.SCR_05_Cart);
       }
       if (pFrames.SCR_03_Menu) {
-        // Nav Menu tab -> SCR-03
         await createHotspot(pFrames.SCR_02_Home, "Hotspot_Nav_Menu", 105, 736, 75, 64, pFrames.SCR_03_Menu);
       }
       if (pFrames.SCR_08_History) {
-        // Nav Orders tab -> SCR-08
         await createHotspot(pFrames.SCR_02_Home, "Hotspot_Nav_Orders", 195, 736, 75, 64, pFrames.SCR_08_History);
       }
     }
@@ -479,7 +496,6 @@ async function main() {
         await createHotspot(pFrames.SCR_04_Detail, "Hotspot_Detail_Back", 18, 30, 45, 45, pFrames.SCR_02_Home);
       }
       if (pFrames.SCR_05_Cart) {
-        // Sticky CTA "Thêm vào giỏ"
         await createHotspot(pFrames.SCR_04_Detail, "Hotspot_Add_To_Cart_CTA", 118, 720, 226, 48, pFrames.SCR_05_Cart);
       }
     }
@@ -490,11 +506,9 @@ async function main() {
         await createHotspot(pFrames.SCR_05_Cart, "Hotspot_Cart_Back", 10, 40, 45, 45, pFrames.SCR_02_Home);
       }
       if (pFrames.SCR_06_Checkout) {
-        // CTA "Xác nhận thanh toán"
         await createHotspot(pFrames.SCR_05_Cart, "Hotspot_Cart_Confirm_Checkout", 16, 720, 328, 52, pFrames.SCR_06_Checkout);
       }
       if (pFrames.SCR_05_Empty_Cart) {
-        // Trash icon -> Empty cart state
         await createHotspot(pFrames.SCR_05_Cart, "Hotspot_Trash_Empty_Cart", 300, 40, 45, 45, pFrames.SCR_05_Empty_Cart);
       }
     }
@@ -505,7 +519,6 @@ async function main() {
         await createHotspot(pFrames.SCR_05_Empty_Cart, "Hotspot_Empty_Back", 10, 40, 45, 45, pFrames.SCR_02_Home);
       }
       if (pFrames.SCR_03_Menu) {
-        // "Khám phá thực đơn"
         await createHotspot(pFrames.SCR_05_Empty_Cart, "Hotspot_Empty_Explore_Menu", 50, 440, 260, 50, pFrames.SCR_03_Menu);
       }
     }
@@ -516,11 +529,9 @@ async function main() {
         await createHotspot(pFrames.SCR_06_Checkout, "Hotspot_Checkout_Back", 10, 40, 45, 45, pFrames.SCR_05_Cart);
       }
       if (pFrames.SCR_07_Tracking) {
-        // CTA "Tiến hành thanh toán MoMo" -> SCR-07 Success
         await createHotspot(pFrames.SCR_06_Checkout, "Hotspot_Pay_MoMo_Success", 16, 720, 328, 52, pFrames.SCR_07_Tracking);
       }
       if (pFrames.SCR_06_Error_Recovery) {
-        // Tap MoMo Radio row to trigger Error recovery scenario
         await createHotspot(pFrames.SCR_06_Checkout, "Hotspot_MoMo_Error_Trigger", 16, 210, 328, 60, pFrames.SCR_06_Error_Recovery);
       }
     }
@@ -528,11 +539,9 @@ async function main() {
     // SCR-06-ERR: Error Recovery -> Tracking (Success) OR Cart
     if (pFrames.SCR_06_Error_Recovery) {
       if (pFrames.SCR_07_Tracking) {
-        // "Thử lại bằng phương thức khác ->"
         await createHotspot(pFrames.SCR_06_Error_Recovery, "Hotspot_Retry_VNPAY_Cash", 16, 680, 328, 52, pFrames.SCR_07_Tracking);
       }
       if (pFrames.SCR_05_Cart) {
-        // "Quay lại giỏ hàng"
         await createHotspot(pFrames.SCR_06_Error_Recovery, "Hotspot_Back_To_Cart", 60, 740, 240, 35, pFrames.SCR_05_Cart);
       }
     }
@@ -546,12 +555,11 @@ async function main() {
         await createHotspot(pFrames.SCR_07_Tracking, "Hotspot_Tracking_Map_History", 16, 650, 328, 48, pFrames.SCR_08_History);
       }
       if (pFrames.Dialog_Cancel) {
-        // ✕ icon -> Confirmation Dialog
         await createHotspot(pFrames.SCR_07_Tracking, "Hotspot_Cancel_Dialog_Trigger", 16, 40, 45, 45, pFrames.Dialog_Cancel);
       }
     }
 
-    // Dialog_Cancel -> Keep (Back to SCR-07) or Cancel (Back to SCR-02 Home)
+    // Dialog_Cancel -> Keep or Cancel
     if (pFrames.Dialog_Cancel) {
       if (pFrames.SCR_07_Tracking) {
         await createHotspot(pFrames.Dialog_Cancel, "Hotspot_Dialog_Keep_Order", 24, 115, 125, 42, pFrames.SCR_07_Tracking);
@@ -574,7 +582,7 @@ async function main() {
       }
     }
 
-    // 4. THIẾT LẬP CHÍNH THỨC 3 FLOW STARTING POINTS CHO FIGMA PROTOTYPE
+    // 5. THIẾT LẬP FLOW STARTING POINTS
     try {
       const startingPoints = [];
       if (pFrames.SCR_01_Onboarding) {
@@ -597,11 +605,10 @@ async function main() {
       }
       protoPage.flowStartingPoints = startingPoints;
     } catch (e) {
-      console.warn("Could not set flowStartingPoints on Prototype page:", e);
+      console.warn("Could not set flowStartingPoints:", e);
     }
   }
 
-  // Chuyển view về trang 06 Prototype để người dùng thấy ngay dây nối và các Flow
   if (pageMap["06 Prototype"]) {
     figma.currentPage = pageMap["06 Prototype"];
     if (pageMap["06 Prototype"].children.length > 0) {
@@ -609,7 +616,7 @@ async function main() {
     }
   }
 
-  figma.notify("🎉 THÀNH CÔNG 100%! Đã tạo 3 Flow Starting Points và nối dây toàn bộ Prototype!");
+  figma.notify("🎉 ĐÃ KẾT NỐI DÂY PROTOTYPE HOÀN TẤT! Bấm SHIFT + SPACE để trải nghiệm bấm thử!");
   figma.closePlugin();
 }
 
@@ -620,4 +627,4 @@ main().catch(err => {
 `;
 
 fs.writeFileSync(path.join(__dirname, '..', '..', 'figma-plugin', 'code.js'), codeContent, 'utf8');
-console.log('Successfully created code.js with full Clickable Prototype & Flow Starting Points!');
+console.log('Successfully generated updated code.js with corrected Figma reactions schema!');
