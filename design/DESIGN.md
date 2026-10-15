@@ -3,6 +3,7 @@
 > **Tài liệu:** `design/DESIGN.md`  
 > **Dự án:** FtaCode Mobile App — Campus Quick Food Ordering  
 > **Môn học:** PRM323 — Lab 2  
+> **Figma Design Link:** [FtaCode Figma Project (View Access)](https://www.figma.com/design/7PHZ75SvS5tH9vvY1TFy7E/Untitled) *(Bao gồm đầy đủ 6 Trang & 3 Flow Prototype tương tác)*  
 > **Mục đích:** Bản mô tả thiết kế quy chuẩn định nghĩa toàn bộ Tokens (Màu sắc, Typography, Spacing, Bo góc, Elevation) và quy tắc Component làm tài liệu cơ sở gửi cho Google Stitch và thiết lập Figma Variables.
 
 ---

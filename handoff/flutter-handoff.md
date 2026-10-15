@@ -3,6 +3,7 @@
 > **Tài liệu:** `handoff/flutter-handoff.md`  
 > **Dự án:** FtaCode Mobile App — Campus Quick Food Ordering  
 > **Môn học:** PRM323 — Lab 2  
+> **Figma Design Link:** [FtaCode Figma Project (View Access)](https://www.figma.com/design/7PHZ75SvS5tH9vvY1TFy7E/Untitled) *(Bao gồm đầy đủ 6 Trang & 3 Flow Prototype tương tác)*  
 > **Mục tiêu:** Cung cấp đặc tả kỹ thuật chi tiết để lập trình viên Flutter có thể lập trình hoàn chỉnh toàn bộ giao diện và các trạng thái mà không cần phải hỏi lại Designer bất kỳ câu hỏi nào.
 
 ---
